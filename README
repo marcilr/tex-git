@@ -1,9 +1,9 @@
 README
-Created Thu Aug  4 15:31:24 AKDT 2011
+Created marcilr@covellite:~/svn/dev/git/syntax$ date
+Mon Aug 10 08:53:04 AKDT 2015
 by Raymond E. Marcil <marcilr@gmail.com>
 
-
-Mon Feb  4 12:01:03 AKST 2013
+Mon Aug 10 08:53:04 AKDT 2015
 =============================
 Set subversion property such that that svninfo keywords get expanded in
 myfile.tex file:
