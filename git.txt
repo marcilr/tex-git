@@ -1,0 +1,14 @@
+git.txt
+Created Mon Aug 10 08:28:18 AKDT 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+Git is a free and open source distributed version control system designed to
+handle everything from small to very large projects with speed and efficiency.
+
+git-scm.com/
+
+
+Links
+=====
+Git
+https://git-scm.com/
