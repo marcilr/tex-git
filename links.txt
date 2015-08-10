@@ -10,3 +10,5 @@ Links
 Git
 https://git-scm.com/
 
+Git branching and tagging best practices
+http://programmers.stackexchange.com/questions/165725/git-branching-and-tagging-best-practices
