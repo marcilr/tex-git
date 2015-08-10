@@ -3,6 +3,7 @@ Created marcilr@covellite:~/svn/dev/git/syntax$ date
 Mon Aug 10 08:53:04 AKDT 2015
 by Raymond E. Marcil <marcilr@gmail.com>
 
+
 Mon Aug 10 08:53:04 AKDT 2015
 =============================
 Set subversion property such that that svninfo keywords get expanded in
@@ -83,6 +84,20 @@ figsys.sty
 fullpage.sty
   Required for build (google).
   http://www.cs.princeton.edu/~boaz/latex/fullpage.sty
+
+git.pdf
+  Built git.tex document
+  Git is a free and open source distributed version control system designed
+  to handle everything from small to very large projects with speed and
+  efficiency.
+  https://git-scm.com/
+  
+git.tex
+  LaTeX documentation for git.
+  Git is a free and open source distributed version control system designed 
+  to handle everything from small to very large projects with speed and 
+  efficiency.
+  https://git-scm.com/
 
 subfigure.sty
   Figures divided into subfigures macro.  Required by figsize.sty
