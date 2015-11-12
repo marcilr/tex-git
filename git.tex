@@ -368,7 +368,7 @@ practices\\
 %% ========================== Repo ===============================
 \newpage
 \section{Repo}
-''Repo is a repository management tool that we built on top of Git.
+``Repo is a repository management tool that we built on top of Git.
 Repo unifies the many Git repositories when necessary, does the
 uploads to a revision control system, and automates parts of the
 development workflow.  Repo is not meant to replace Git, only to
@@ -381,26 +381,26 @@ into your local working directory.''\footnote{Developing -- \href{http://source.
 \\
 \\
 \noindent \FIXME{The above \cmd{repo} quote has been heavily modified.
-Need to rewrite with original verbage.}
-\\
-\\
-''At the root of the repo is a hidden directory named '\cmd{.repo}',
-inside you will find a git project named '\cmd{manifests}' which
-usually contains a file named '\cmd{default.xml}'.  This file
-contains information about all the projects and where their associated
-git repositories are located.  This file is also versioned thus when
-you use the '\cmd{repo init -b XYZ}' command it will be reverted and you
-can back to older branches that may have added/removed git projects
-compared to the head.''\footnote{How does the Android repo manifest repository work?\\
-\href{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}
-{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}}
+Need to rewrite with original verbage.} 
 
 
 %% ======================== Manifest =============================
 %% ======================== Manifest =============================
 \subsection{Manifest}
-Repo keeps a manifest in the \cmd{.repo} directory created when
-a repo is initialized using:
+The repo keeps a manifest, ``within the hidden directory named `.repo','' 
+in ``a git project named `\cmd{manifests}' which
+usually contains a file named `\cmd{default.xml}'.  This file
+contains information about all the projects and where their associated
+git repositories are located.  This file is also versioned thus when
+you use the `\cmd{repo init -b XYZ}' command it will be reverted and you
+can back to older branches that may have added/removed git projects
+compared to the head.''\footnote{How does the Android repo manifest repository work?\\
+\href{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}
+{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}}
+\\
+\\
+The \cmd{default.xml} file is symlinked to \cmd{.repo/manifest.xml} and
+is created when the repo was initialized using:
 \\
 \\
 \cmd{repo init -u $<$manifest path$>$}
