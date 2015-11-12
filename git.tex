@@ -384,8 +384,16 @@ into your local working directory.''\footnote{Developing -- \href{http://source.
 Need to rewrite with original verbage.}
 \\
 \\
-The repo command uses \cmd{.repo} subdirectories to store \cmd{repo}
-\cmd{git} repository details and metadata.
+''At the root of the repo is a hidden directory named '\cmd{.repo}',
+inside you will find a git project named '\cmd{manifests}' which
+usually contains a file named '\cmd{default.xml}'.  This file
+contains information about all the projects and where their associated
+git repositories are located.  This file is also versioned thus when
+you use the '\cmd{repo init -b XYZ}' command it will be reverted and you
+can back to older branches that may have added/removed git projects
+compared to the head.''\footnote{How does the Android repo manifest repository work?\\
+\href{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}
+{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}}
 
 
 %% ======================== Manifest =============================
@@ -417,6 +425,7 @@ a repo is initialized using:
 \section{Appendix}
 
 
+%% ============= Links ===============
 %% ============= Links ===============
 A successful Git branching model\\
 by Vincent Driessen on Tuesday, January 05, 2010\\
