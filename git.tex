@@ -365,7 +365,7 @@ usually abbreviate such remote-tracking branch names to \cmd{origin/foo}.\footno
 \href{https://help.github.com/articles/fetching-a-remote/}{https://help.github.com/articles/fetching-a-remote/}}
 
 
-\subsubsection{Example}
+\subsubsection{Examples}
 To clone repository named \cmd{git} from GitHub to local \cmd{covellite} workstation:
 \begin{Verbatim}
 covellite:~$ git clone https://github.com/marcilr/git.git
@@ -375,7 +375,22 @@ Checking connectivity... done.
 covellite:~$
 \end{Verbatim}
 
-\noindent \FIXME{Add example using ssh://}\\
+\newpage
+\noindent To clone a Git repository over SSH, you can specify ssh:// URL like this:\\
+\begin{Verbatim}
+$ git clone ssh://user@server/project.git
+\end{Verbatim}
+
+\noindent Or you can use the shorter scp-like syntax for the SSH protocol:
+
+\begin{Verbatim}
+$ git clone user@server:project.git
+\end{Verbatim}
+You can also not specify a user, and Git assumes the user you're currently logged in as.\footnote{
+Git on the Server - The Protocols, The SSH Protocol,\\
+\href{https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols}{https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols}}
+\\
+\\
 \noindent \FIXME{Need more commands here.}
 
 
@@ -524,6 +539,11 @@ Excellent details and semantics.\\
 \\
 Git FAQ\\
 \href{https://git.wiki.kernel.org/index.php/GitFaq}{https://git.wiki.kernel.org/index.php/GitFaq}
+\\
+\\
+Git on the Server - The Protocols, The SSH Protocol\\
+The Git Book\\
+\href{https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols}{https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols}\\
 \\
 \\
 Git (software)\\
