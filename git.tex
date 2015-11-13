@@ -323,6 +323,8 @@ encyclopedia, \href{https://en.wikipedia.org/wiki/Git\_(software)}{https://en.wi
 
 %% ===================== Command Reference =======================
 %% ===================== Command Reference =======================
+%% ===================== Command Reference =======================
+\newpage
 \section{Command Reference}
 
 \begin{table}[htb]
@@ -337,6 +339,38 @@ Clone&Get a complete copy of a repository.\\
 \label{table:commands}
 \end{center}
 \end{table}
+
+
+%% =========================== Clone =============================
+%% =========================== Clone =============================
+\subsection{Clone}
+To grab a complete copy of another user's repository, use git clone like this:
+
+\begin{Verbatim}
+  $ git clone https://github.com/USERNAME/REPOSITORY.git
+  # Clones a repository to your computer
+\end{Verbatim}
+
+\noindent When you run \cmd{git clone}, the following actions occur:\\
+$>$ A new folder called repo is made\\
+$>$ It is initialized as a Git repository\\
+$>$ A remote named origin is created, pointing to the URL you cloned from\\
+$>$ All of the repository's files and commits are downloaded there\\
+$>$ The default branch (usually called master) is checked out\\
+
+\noindent For every branch \cmd{foo} in the remote repository, a corresponding remote-tracking
+branch \cmd{refs/remotes/origin/foo} is created in your local repository.  You can
+usually abbreviate such remote-tracking branch names to \cmd{origin/foo}.
+
+\subsubsection{Example}
+To clone repository named \cmd{git} from GitHub to local \cmd{covellite} workstation:
+\begin{Verbatim}
+covellite:~$ git clone https://github.com/marcilr/git.git
+Cloning into 'git'...
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+covellite:~$
+\end{Verbatim}
 
 \noindent \FIXME{Need data here.}
 
