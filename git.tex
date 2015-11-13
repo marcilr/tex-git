@@ -550,6 +550,32 @@ is created when the repo was initialized using:
 \cmd{repo init -u $<$manifest path$>$}
 
 
+%% ======================== Examples =============================
+%% ======================== Examples =============================
+\newpage
+\subsection{Examples}
+Following is a manifest, in \cmd{default.xml} file, showing use
+of GitHub with username, ssh:// URL syntax, and 3 project repos
+with different usernames:\footnote{Keiji Ariyama, \href{https://github.com/keiji/repo-sample/blob/master/default.xml}{https://github.com/keiji/repo-sample/blob/master/default.xml}}
+
+\begin{Verbatim}
+ <?xml version="1.0" encoding="UTF-8"?>
+ <manifest>
+   <remote name="origin" fetch="ssh://git@github.com/" />
+   <default revision="master" remote="origin" />
+
+   <project path="lib/plist-lib"
+            name="keiji/AndroidPListLib.git" remote="origin" />
+
+   <project path="lib/json-pull-parser"
+            name="vvakame/JsonPullParser.git" remote="origin" />
+
+   <project path="apps/twicca_megane_plugin"
+            name="zaki50/TwiccaMeganePlugin.git" remote="origin" />
+ </manifest>
+\end{Verbatim}
+
+
 
 %% ======================== Appendix =============================
 %% ======================== Appendix =============================
@@ -627,7 +653,6 @@ From Wikipedia, the free encyclopedia\\
 \href{https://en.wikipedia.org/wiki/Git\_(software)}{https://en.wikipedia.org/wiki/Git\_(software)}
 \\
 \\
-\newpage
 \noindent Git repositories on gerrit\\
 \href{https://gerrit.googlesource.com/}{https://gerrit.googlesource.com/}
 \\
