@@ -365,6 +365,8 @@ usually abbreviate such remote-tracking branch names to \cmd{origin/foo}.\footno
 \href{https://help.github.com/articles/fetching-a-remote/}{https://help.github.com/articles/fetching-a-remote/}}
 
 
+%% ========================= Examples ============================
+%% ========================= Examples ============================
 \subsubsection{Examples}
 To clone repository named \cmd{git} from GitHub to local \cmd{covellite} workstation:
 \begin{Verbatim}
@@ -525,8 +527,35 @@ into your local working directory.''\footnote{Developing -- \href{http://source.
 \\
 \\
 \noindent \FIXME{The above \cmd{repo} quote has been heavily modified.
-Need to rewrite with original verbage.} 
+Need to rewrite with original verbage.}
 
+
+%% ================== .repo/ subdirectory ===========================
+%% ================== .repo/ subdirectory ===========================
+\subsection{\cmd{.repo/} subdirectory}
+The \cmd{.repo/} subdirectory, located in the repository base,
+holds repo configuration.  The configuration includes a manifest
+with information about all the projects and where their associated git
+repositories are located.
+\\
+\\
+Files within the \cmd{.repo/} subdirectory includes:
+\begin{verbatim}
+  manifests/
+  manifests.git
+  manifest.xml -> manifests/default.xml
+  project-objects
+  projects/
+  repo/
+\end{verbatim}
+ 
+\noindent To create the \cmd{.repo/} subdirectory:
+
+\begin{Verbatim}
+ $ cd <my_repo>
+ $ mkdir .repo/
+ $ 
+\end{Verbatim}
 
 %% ======================== Manifest =============================
 %% ======================== Manifest =============================
