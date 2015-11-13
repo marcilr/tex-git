@@ -368,24 +368,25 @@ usually abbreviate such remote-tracking branch names to \cmd{origin/foo}.\footno
 \subsubsection{Examples}
 To clone repository named \cmd{git} from GitHub to local \cmd{covellite} workstation:
 \begin{Verbatim}
-covellite:~$ git clone https://github.com/marcilr/git.git
-Cloning into 'git'...
-warning: You appear to have cloned an empty repository.
-Checking connectivity... done.
-covellite:~$
+ covellite:~$ git clone https://github.com/marcilr/git.git
+ Cloning into 'git'...
+ warning: You appear to have cloned an empty repository.
+ Checking connectivity... done.
+ covellite:~$
 \end{Verbatim}
 
 \newpage
 \noindent To clone a Git repository over SSH, you can specify ssh:// URL like this:\\
 \begin{Verbatim}
-$ git clone ssh://user@server/project.git
+ $ git clone ssh://user@server/project.git
 \end{Verbatim}
 
 \noindent Or you can use the shorter scp-like syntax for the SSH protocol:
 
 \begin{Verbatim}
-$ git clone user@server:project.git
+ $ git clone user@server:project.git
 \end{Verbatim}
+
 You can also not specify a user, and Git assumes the user you're currently logged in as.\footnote{
 Git on the Server - The Protocols, The SSH Protocol,\\
 \href{https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols}{https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols}}
@@ -393,6 +394,58 @@ Git on the Server - The Protocols, The SSH Protocol,\\
 \\
 \noindent \FIXME{Need more commands here.}
 
+
+%% ==================== The SSH Protocol =========================
+%% ==================== The SSH Protocol =========================
+\section{The SSH Protocol}
+A common transport protocol for Git when self-hosting is over SSH.
+This is because SSH access to servers is already set up in most
+places – and if it isn’t, it's easy to do.  SSH is also an
+authenticated network protocol; and because it’s ubiquitous,
+it's generally easy to set up and use.\footnote{Ibid.}
+\\
+\\
+To clone a Git repository over SSH, you can specify ssh:// URL like this:
+
+\begin{Verbatim}
+ $ git clone ssh://user@server/project.git
+\end{Verbatim}
+
+\noindent Or you can use the shorter scp-like syntax for the SSH
+protocol:
+
+\begin{Verbatim}
+ $ git clone user@server:project.git
+\end{Verbatim}
+
+\noindent You can also not specify a user, and Git assumes the
+user you’re currently logged in as.
+
+
+%% ======================== The Pros =============================
+%% ======================== The Pros =============================
+\subsubsection{The Pros}
+The pros of using SSH are many.  First, SSH is relatively easy
+to set up – SSH daemons are commonplace, many network admins have
+experience with them, and many OS distributions are set up with
+them or have tools to manage them.  Next, access over SSH is
+secure – all data transfer is encrypted and authenticated.  Last,
+like the HTTP/S, Git and Local protocols, SSH is efficient, making
+the data as compact as possible before transferring it.
+
+
+%% ======================== The Cons =============================
+%% ======================== The Cons =============================
+\subsubsection{The Cons}
+The negative aspect of SSH is that you can’t serve anonymous
+access of your repository over it.  People must have access to
+your machine over SSH to access it, even in a read-only capacity,
+which doesn’t make SSH access conducive to open source projects.
+If you’re using it only within your corporate network, SSH may be
+the only protocol you need to deal with.  If you want to allow
+anonymous read-only access to your projects and also want to use
+SSH, you’ll have to set up SSH for you to push over but something
+else for others to fetch over.
 
 
 %% =================== Branching & Tagging =======================
