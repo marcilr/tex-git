@@ -687,6 +687,34 @@ upload&Upload changes for code review\\
 \end{table}
 
 
+
+%% ========================== init ===============================
+%% ========================== init ===============================
+\subsubsection{init}
+\cmd{\$ repo init -u <URL> [<OPTIONS>]}
+\\
+Installs Repo in the current directory. This creates a \cmd{.repo/}
+directory that contains Git repositories for the Repo source code
+and the standard Android manifest files.  The \cmd{.repo/}
+directory also contains manifest.xml, which is a symlink to the
+selected manifest in the .repo/manifests/ directory.
+\\
+\\
+Options:
+\\
+-u: specify a URL from which to retrieve a manifest repository.\\
+\indent The common manifest can be found at:\\
+\indent \cmd{https://android.googlesource.com/platform/manifest}\\
+-m: select a manifest file within the repository. If no manifest
+ name is selected, the default\\
+ \indent is default.xml.\\
+-b: specify a revision, i.e., a particular manifest-branch.\\
+\\
+Note: For all remaining Repo commands, the current working
+directory must either be the parent directory of \cmd{.repo/}
+or a subdirectory of the parent directory.\footnote{Ibid}
+
+
 %% ======================== Appendix =============================
 %% ======================== Appendix =============================
 %% ======================== Appendix =============================
