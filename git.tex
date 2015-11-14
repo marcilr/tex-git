@@ -527,7 +527,7 @@ Googled up some simple shell script to create GitHub repo via
 command line:
 
 \begin{verbatim}
-  "$username:$token" https://api.github.com/user/repos \
+  "curl -u $username:$token" https://api.github.com/user/repos \
   -d '{"name":"'$repo\_name'"}'}
 \end{verbatim}
 
@@ -628,7 +628,46 @@ from the Command Line, by Eli Fatsi - Jan 29, 2014,\\
 \href{https://viget.com/extend/create-a-github-repo-from-the-command-line}{https://viget.com/extend/create-a-github-repo-from-the-command-line}}
 \\
 \\
-\FIXME{Need Bitbucket vs. GitHub section}
+On GCI Network Services, OSS \cmd{covellite} Debian jessie 8.2
+workstation the \cmd{gtihub-create} did not execute.  Put
+github-create() into a standalone \cmd{\textasciitilde/gtihub-create}
+script with call to \cmd{gtihub-create()} under main.
+\\
+\\
+Tested with:
+\begin{Verbatim}
+ $ mkdir ~/quux
+ $ cd ~/quux
+ $ git init
+ Initialized empty Git repository in /home/marcilr/quux/.git/
+ $ github-create 
+ Repo name (hit enter to use 'quux')?
+
+ Could not find username, run 'git config --global github.user <username>'
+ Could not find token, run 'git config --global github.token <token>'
+ $
+\end{Verbatim}
+
+\newpage
+\noindent Configured the GetHub username and token to alleviate GutHub credential errors:
+\begin{Verbatim}
+ $ git config --global github.user marcilr
+ $ git config --global github.token <the_usual>
+\end{Verbatim}
+
+\noindent Was then able to run \cmd{\textasciitilde/github-create} successfully:
+\begin{Verbatim}
+ $ cd ~/quux/
+ $ github-create
+ Repo name (hit enter to use 'quux')? <enter>
+
+ Creating Github repository 'quux' ... done.
+ Pushing local code to remote ... done.
+ $
+\end{Verbatim}
+
+\noindent \FIXME Checking GitHub via web interface do *not* find a new quux repo.
+\noindent \FIXME{Need Bitbucket vs. GitHub section}
 
 
 %% Adding an existing project to GitHub using the command line
