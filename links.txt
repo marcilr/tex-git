@@ -23,5 +23,9 @@ https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 Git branching and tagging best practices
 http://programmers.stackexchange.com/questions/165725/git-branching-and-tagging-best-practices
 
+How the Heck Do I Use GitHub?
+by Adam Dachis
+http://lifehacker.com/5983680/how-the-heck-do-i-use-github
+
 hub is a command-line wrapper for git that makes you better at GitHub
 https://hub.github.com/
