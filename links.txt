@@ -7,6 +7,9 @@ Git related links
 
 Links
 =====
+Adding an existing project to GitHub using the command line
+https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
 Getting Started - Installing Git
 Solid docs here
 https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
@@ -19,3 +22,6 @@ https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 
 Git branching and tagging best practices
 http://programmers.stackexchange.com/questions/165725/git-branching-and-tagging-best-practices
+
+hub is a command-line wrapper for git that makes you better at GitHub
+https://hub.github.com/
