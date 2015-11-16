@@ -29,3 +29,9 @@ http://lifehacker.com/5983680/how-the-heck-do-i-use-github
 
 hub is a command-line wrapper for git that makes you better at GitHub
 https://hub.github.com/
+
+Node GH
+GitHub command line tools
+http://nodegh.io/
+https://github.com/node-gh/gh
+
