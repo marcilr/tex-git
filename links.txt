@@ -14,5 +14,8 @@ https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 Git
 https://git-scm.com/
 
+Git Basics - Getting a Git Repository
+https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
+
 Git branching and tagging best practices
 http://programmers.stackexchange.com/questions/165725/git-branching-and-tagging-best-practices
