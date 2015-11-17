@@ -343,7 +343,7 @@ encyclopedia, \href{https://en.wikipedia.org/wiki/Git\_(software)}{https://en.wi
 \begin{tabular}{|p{.25\textwidth}|p{.47\textwidth}|}\hline
 Command&Description\\
 \hline
-Add&Add file contents to the index\footnotemark{}\\
+Add&Add file contents to the index\\
 Clone&Get a complete copy of a repository\\
 \hline
 \end{tabular}
@@ -352,12 +352,21 @@ Clone&Get a complete copy of a repository\\
 \end{center}
 \end{table}
 
-\footnotetext{foo}
-
 
 %% ============================ Add ==============================
 %% ============================ Add ==============================
 \subsection{Add}
+Add file contents to the index
+\\
+\\
+This command updates the index using the current content found in
+the working tree, to prepare the content staged for the next
+commit.  It typically adds the current content of existing paths
+as a whole, but with some options it can also be used to add
+content with only part of the changes made to the working tree
+files applied, or remove paths that do not exist in the working
+tree anymore.\footnote{git-add - Add file contents to the index\\
+\href{https://git-scm.com/docs/git-add}{https://git-scm.com/docs/git-add}}
 
 %% =========================== Clone =============================
 %% =========================== Clone =============================
