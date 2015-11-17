@@ -581,6 +581,27 @@ default remote is usually called origin.\footnote{About remote repositories,
 \end{Verbatim}
 
 
+%% =================== git remote set-url =======================
+%% =================== git remote set-url =======================
+\newpage
+\subsubsection{git remote set-url}
+The \cmd{git remote set-url} command changes an existing remote
+repository URL.\footnote{Changing a remote's URL,
+\href{https://help.github.com/articles/changing-a-remote-s-url/}{https://help.github.com/articles/changing-a-remote-s-url/}}
+\\
+\\
+The git remote set-url command takes two arguments:
+\\
+$>$ An existing remote name. For example, \cmd{origin} or \cmd{upstream} are two common choices.\\
+$>$ A new URL for the remote. For example:\\
+
+\noindent\hspace*{10pt}$>$ If you're updating to use HTTPS, your URL might look like:\\
+\noindent\hspace*{23pt}\cmd{https://github.com/USERNAME/OTHERREPOSITORY.git}\\
+\\
+\noindent\hspace*{10pt}$>$ If you're updating to use SSH, your URL might look like:\\
+\noindent\hspace*{23pt}\cmd{git@github.com:USERNAME/OTHERREPOSITORY.git}
+
+
 %% ==================== git remote rename ======================
 %% ==================== git remote rename ======================
 \subsubsection{git remote rename}
