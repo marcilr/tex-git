@@ -533,13 +533,30 @@ terminal, in the directory your repository is stored at.\footnote{Adding a remot
 \href{https://help.github.com/articles/adding-a-remote/}{https://help.github.com/articles/adding-a-remote/}}
 \\
 \\
-The git remote add command takes two arguments:
+The \cmd{git remote add} command takes two arguments:
+
+\begin{verbatim}
+$ git remote add <NAME> <REMOTE_URL> 
+\end{verbatim}
+
+\noindent \cmd{<NAME>} - A remote name, for example, \cmd{origin}\\
+\cmd{<REMOTE\_URL>} - A remote URL, for example, \cmd{https://github.com/user/repo.git}
 \\
-$>$ A remote name, for example, origin\\
-$>$ A remote URL, for example, https://github.com/user/repo.git
 \\
-\\
-For example:
+
+
+
+%% ======================== Examples ============================
+%% ======================== Examples ============================
+\vspace{10pt}
+\noindent \begin{bf}Examples\end{bf}
+\begin{Verbatim}
+ # This associates the name origin with SSH URL for repo.git repository.
+ $ git remote add origin git@github.com:user/repo.git
+\end{Verbatim}
+
+\noindent Alternatively using https syntax:
+
 \begin{Verbatim}
  $ git remote add origin https://github.com/user/repo.git
  # Set a new remote
