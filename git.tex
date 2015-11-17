@@ -856,6 +856,43 @@ for open source projects.\\
 
 \FIXME{Still need cli list, rename, and delete functionality.}
 
+
+%% ========= Caching your GitHub password in Git =================
+%% ========= Caching your GitHub password in Git =================
+\subsubsection{Caching your GitHub password in Git}
+If you're cloning GitHub repositories using HTTPS, you can use a
+credential helper to tell Git to remember your GitHub username
+and password every time it talks to GitHub.
+\\
+\\
+If you clone GitHub repositories using SSH, then you authenticate
+using SSH keys instead of a username and password.  For help
+setting up an SSH connection, see Generating SSH Keys.\footnote{Generating SSH keys,
+\href{https://help.github.com/articles/generating-ssh-keys/}{https://help.github.com/articles/generating-ssh-keys/}}
+\\
+\\
+Turn on the credential helper so that Git will save your password
+in memory for some time.  By default, Git will cache your password
+for 15 minutes.\footnote{Caching your GitHub password in Git,
+\href{https://help.github.com/articles/caching-your-github-password-in-git/}{https://help.github.com/articles/caching-your-github-password-in-git/}}
+
+\begin{enumerate}
+  \item{In Terminal, enter the following:
+\begin{Verbatim}
+ $ git config --global credential.helper cache
+ # Set git to use the credential memory cache
+\end{Verbatim}
+       }
+  \item{To change the default password cache timeout, enter the following:
+\begin{Verbatim}
+ $ git config --global credential.helper 'cache --timeout=3600'
+ # Set the cache to timeout after 1 hour (setting is in seconds)
+\end{Verbatim}
+       }
+\end{enumerate}
+
+\noindent \FIXME{The GitHub user and pass got saved by alternate means.  How was that done?}
+
 \subsubsection{Create a Github Repo from the Command Line}
 Creating a GitHub repository from the command line is incredibly
 convenient.
