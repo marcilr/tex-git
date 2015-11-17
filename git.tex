@@ -602,6 +602,37 @@ $>$ A new URL for the remote. For example:\\
 \noindent\hspace*{23pt}\cmd{git@github.com:USERNAME/OTHERREPOSITORY.git}
 
 
+%% ========= Switching remote URLs from SSH to HTTPS ===========
+%% ========= Switching remote URLs from SSH to HTTPS ===========
+\subsubsection{Switching remote URLs from SSH to HTTPS}
+\begin{enumerate}
+  \item{Open Terminal (for Mac and Linux users) or the command prompt
+       (for Windows users).}
+  \item{Change the current working directory to your local project.}
+  \item{List your existing remotes in order to get the name of the remote you want to change.
+\begin{Verbatim}
+ $ git remote -v
+ # origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
+ # origin  git@github.com:USERNAME/REPOSITORY.git (push)
+\end{Verbatim}
+       }
+  \item{Change your remote's URL from SSH to HTTPS with the git remote set-url command.
+\begin{Verbatim}
+ $ git remote set-url origin \
+ https://github.com/USERNAME/OTHERREPOSITORY.git
+\end{Verbatim}
+      }
+
+  \item{Verify that the remote URL has changed.
+\begin{Verbatim}
+$ git remote -v
+# Verify new remote URL
+# origin  https://github.com/USERNAME/OTHERREPOSITORY.git (fetch)
+# origin  https://github.com/USERNAME/OTHERREPOSITORY.git (push)
+\end{Verbatim}
+       }
+\end{enumerate}
+
 %% ==================== git remote rename ======================
 %% ==================== git remote rename ======================
 \subsubsection{git remote rename}
