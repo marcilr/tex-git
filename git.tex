@@ -343,13 +343,16 @@ encyclopedia, \href{https://en.wikipedia.org/wiki/Git\_(software)}{https://en.wi
 \begin{tabular}{|p{.25\textwidth}|p{.47\textwidth}|}\hline
 Command&Description\\
 \hline
-Clone&Get a complete copy of a repository.\\
+Add&Add file contents to the index\footnotemark{}\\
+Clone&Get a complete copy of a repository\\
 \hline
 \end{tabular}
 \caption {Commands}
 \label{table:commands}
 \end{center}
 \end{table}
+
+\footnotetext{foo}
 
 
 %% =========================== Clone =============================
@@ -387,6 +390,17 @@ To clone repository named \cmd{git} from GitHub to local \cmd{covellite} worksta
  Checking connectivity... done.
  covellite:~$
 \end{Verbatim}
+
+\newpage
+\noindent Clone \cmd{.repo} repository into \cmd{git/} directory:
+\begin{Verbatim}
+covellite:~/git$ git clone https://github.com/marcilr/.repo
+Cloning into '.repo'...
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+covellite:~/git$
+\end{Verbatim}
+
 
 \newpage
 \noindent To clone a Git repository over SSH, you can specify ssh:// URL like this:\\
