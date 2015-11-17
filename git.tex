@@ -340,7 +340,7 @@ encyclopedia, \href{https://en.wikipedia.org/wiki/Git\_(software)}{https://en.wi
 
 \begin{table}[htb]
 \begin{center}
-\begin{tabular}{|p{.15\textwidth}|p{.47\textwidth}|}\hline
+\begin{tabular}{|p{.15\textwidth}|p{.70\textwidth}|}\hline
 Command&Description\\
 \hline
 \cmd{add}&Add file contents to the index\\
@@ -371,6 +371,22 @@ content with only part of the changes made to the working tree
 files applied, or remove paths that do not exist in the working
 tree anymore.\footnote{git-add - Add file contents to the index\\
 \href{https://git-scm.com/docs/git-add}{https://git-scm.com/docs/git-add}}
+
+
+%% ========================= Examples ============================
+%% ========================= Examples ============================
+\subsubsection{Examples}
+Create and add \cmd{.repo/manifests/default.xml} file and
+\cmd{.repo/manifests/manifest.xml}
+\begin{Verbatim}
+covellite:~/git/.repo/manifests$ git add default.xml
+covellite:~/git/.repo/manifests$ git commit default.xml
+covellite:~/git/.repo/manifests$ cd ..
+covellite:~/git/.repo/$ ln -s manifests/default.xml manifest.xml
+covellite:~/git/.repo/$ git add manifest.xml
+covellite:~/git/.repo/$ git commit
+\end{Verbatim}
+
 
 %% =========================== Clone =============================
 %% =========================== Clone =============================
