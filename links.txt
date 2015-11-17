@@ -30,8 +30,14 @@ http://lifehacker.com/5983680/how-the-heck-do-i-use-github
 hub is a command-line wrapper for git that makes you better at GitHub
 https://hub.github.com/
 
+Is it possible to create a remote repo on GitHub from the CLI without ssh?
+http://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-ssh
+
 Node GH
 GitHub command line tools
 http://nodegh.io/
 https://github.com/node-gh/gh
+
+Repository API
+https://developer.github.com/v3/repos/#create
 
