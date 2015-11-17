@@ -1,0 +1,166 @@
+gh.txt
+Created Mon Nov 16 13:52:32 AKST 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Node GH
+GitHub command line tools
+
+
+INSTALL
+=======
+1. Install npm
+# aptitude install npm
+Installed nodejs and another quadrillion dependencies.
+
+2. Install gh
+# npm install gh -g
+-npm WARN engine gh@1.12.3: wanted: {"node":">=0.12"} (current: {"node":"0.10.29","npm":"1.4.21"})
+-npm WARN engine hawk@3.1.1: wanted: {"node":">=0.10.32"} (current: {"node":"0.10.29","npm":"1.4.21"})
+/npm WARN engine cryptiles@2.0.5: wanted: {"node":">=0.10.40"} (current: {"node":"0.10.29","npm":"1.4.21"})
+npm WARN engine boom@2.10.1: wanted: {"node":">=0.10.40"} (current: {"node":"0.10.29","npm":"1.4.21"})
+npm WARN engine hoek@2.16.3: wanted: {"node":">=0.10.40"} (current: {"node":"0.10.29","npm":"1.4.21"})
+//usr/local/bin/gh -> /usr/local/lib/node_modules/gh/bin/gh.js
+gh@1.12.3 /usr/local/lib/node_modules/gh
+...
+#
+
+A few complaints but appeared to have worked.
+
+nodejs       0.10.29~dfsg-2   amd64   evented I/O for V8 javascript
+nodejs-dev   0.10.29~dfsg-2   amd64   evented I/O for V8 javascript
+                                      (development files)
+
+Upgrade to nodejs 0.12
+======================
+1. Uninstall npm:
+# aptitude remove npm
+Uninstall npm and nodejs dependencies.
+
+2. Down Node JS v4.2.2 LTS, Mature and Dependable
+$ wget  https://nodejs.org/dist/v4.2.2/node-v4.2.2-linux-x64.tar.gz
+
+3. Expand tarbal:
+$ tar zxvpf node-v4.2.2-linux-x64.tar.gz
+
+4. Install:
+# mv node-v4.2.2-linux-x64 /usr/local/
+# ln -s /usr/local/node-v4.2.2-linux-x64/ /usr/local/nodejs
+# ln -s /usr/local/nodejs/bin/node  /usr/local/bin/node
+# ln -s /usr/local/nodejs/bin/npm /usr/local/bin/npm
+
+
+4. Check installation:
+$ node -v
+v4.2.2
+$
+
+$ npm -v
+2.14.7
+$
+
+Looks good.
+
+5. Install gh
+# npm install gh -g
+
+Plenty of dependencies installed without error.
+
+
+From "gh --list" looks like gh wants nodejs 0.12 or higher.
+
+
+Errors
+======
+$ gh --list
+/usr/bin/env: node: No such file or directory
+
+# ln -s /usr/bin/nodejs /usr/bin/node
+
+-- run npm command gives error "/usr/bin/env: node: No such file or \
+   directory" #3911
+   Closed	nickgit opened this issue on Aug 23, 2012 - 98 comments
+   https://github.com/nodejs/node-v0.x-archive/issues/3911
+
+File List
+=========
+node-v4.2.2-linux-x64.tar.gz
+  v4.2.2 LTS
+  Mature and Dependable
+  https://nodejs.org/dist/v4.2.2/node-v4.2.2-linux-x64.tar.gz
+
+
+List repos
+==========
+$ gh re list
+First we need authorization to use GitHub's API. Login with your GitHub account.
+? Enter your GitHub user       marcilr
+? Enter your GitHub password   the usual + 79
+
+This opened https://github.com/marcilr/null in browser.
+
+Examples
+========
+List repos:
+$ gh re --list
+Listing owner repos for marcilr
+marcilr/foo
+forks: 0, stars: 0, issues: 0
+
+marcilr/git
+forks: 0, stars: 0, issues: 0
+
+marcilr/gnano
+forks: 0, stars: 0, issues: 0
+
+marcilr/hello-world
+forks: 0, stars: 0, issues: 1
+
+marcilr/quux
+forks: 0, stars: 0, issues: 0
+
+$
+
+
+List private repos:
+$ gh re --list --type private
+Listing private repos for marcilr
+$
+
+
+List issues:
+$ gh issue --list --all
+Listing open issues for marcilr
+#1 Finish README @marcilr (in a few seconds)
+$
+
+Create .repo repository:
+$ gh re --new .repo clone
+Creating a new repo on marcilr/.repo
+https://github.com/marcilr/.repo
+[hook] gh re --browser --user marcilr --repo .repo
+$
+
+NOTE: This does open the new repo in a browser window.
+      Would like to disable it.
+
+
+Links
+=====
+How to install latest NodeJS on Debian Jessie?
+Used to install node v4.2.2 and npm v2.14.7
+i.e. node-v4.2.2-linux-x64.tar.gz installation
+http://unix.stackexchange.com/questions/207591/how-to-install-latest-nodejs-on-debian-jessie
+
+Node GH
+GitHub command line tools
+http://nodegh.io/
+https://github.com/node-gh/gh
+
+Node JS
+Has:
+o v4.2.2 LTS
+  Mature and Dependable
+o v5.0.0
+  Latest Features
+https://nodejs.org/en/
