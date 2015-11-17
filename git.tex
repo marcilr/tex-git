@@ -508,6 +508,39 @@ git remote -v
 # origin  https://github.com/user/repo.git (push)
 \end{Verbatim}
 
+
+%% ==================== git remote rename ======================
+%% ==================== git remote rename ======================
+\subsubsection{git remote rename}
+Use the git remote rename command to rename an existing remote.\footnote{Renaming a remote,
+\href{https://help.github.com/articles/renaming-a-remote/}{https://help.github.com/articles/renaming-a-remote/}}
+\\
+\\
+The git remote rename command takes two arguments:
+\\
+\\
+$>$ An existing remote name, for example, origin A new name for the\\
+$>$ remote, for example, destination
+
+\newpage
+\subsubsection{Example}
+The examples below assume you're cloning using HTTPS, which is recommended.
+
+\begin{Verbatim}
+git remote -v
+# View existing remotes
+# origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+# origin  https://github.com/OWNER/REPOSITORY.git (push)
+
+git remote rename origin destination
+# Change remote name from 'origin' to 'destination'
+
+git remote -v
+# Verify remote's new name
+# destination  https://github.com/OWNER/REPOSITORY.git (fetch)
+# destination  https://github.com/OWNER/REPOSITORY.git (push)
+\end{Verbatim}
+
 %% ==================== The SSH Protocol =========================
 %% ==================== The SSH Protocol =========================
 \newpage
