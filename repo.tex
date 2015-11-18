@@ -1,0 +1,228 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% repo.tex
+%% Created Tue Nov 17 15:18:14 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Google'd repo command
+%%
+
+%% ========================== Repo ===============================
+%% ========================== Repo ===============================
+%% ========================== Repo ===============================
+\newpage
+\section{Repo}
+``Repo is a repository management tool that we built on top of Git.
+Repo unifies the many Git repositories when necessary, does the
+uploads to a revision control system, and automates parts of the
+development workflow.  Repo is not meant to replace Git, only to
+make it easier to work with Git in the context of Android.  The
+\cmd{repo} command is an executable Python script that you can put
+anywhere in your path.  In working with source files, you will use
+Repo for across-network operations.  For example, with a single
+Repo command you can download files from multiple repositories
+into your local working directory.''\footnote{Developing -- \href{http://source.android.com/source/developing.html}{http://source.android.com/source/developing.html}}
+\\
+\\
+\noindent \FIXME{The above \cmd{repo} quote has been heavily modified.
+Need to rewrite with original verbage.}
+
+
+%% ================== .repo/ subdirectory ===========================
+%% ================== .repo/ subdirectory ===========================
+\subsection{\cmd{.repo/} subdirectory}
+The \cmd{.repo/} subdirectory, located in the repository base,
+holds repo configuration.  The configuration includes a manifest
+with information about all the projects and where their associated git
+repositories are located.
+\\
+\\
+Files within the \cmd{.repo/} subdirectory includes:
+\begin{verbatim}
+  manifests/
+  manifests.git
+  manifest.xml -> manifests/default.xml
+  project-objects
+  projects/
+  repo/
+\end{verbatim}
+ 
+\noindent To create the \cmd{.repo/} subdirectory:
+
+\begin{Verbatim}
+ $ cd <my_repo>
+ $ mkdir .repo/
+ $ 
+\end{Verbatim}
+
+%% ======================== Manifest =============================
+%% ======================== Manifest =============================
+\subsection{Manifest}
+The repo keeps a manifest, ``within the hidden directory named `.repo','' 
+in ``a git project named `\cmd{manifests}' which
+usually contains a file named `\cmd{default.xml}'.  This file
+contains information about all the projects and where their associated
+git repositories are located.  This file is also versioned thus when
+you use the `\cmd{repo init -b XYZ}' command it will be reverted and you
+can back to older branches that may have added/removed git projects
+compared to the head.''\footnote{How does the Android repo manifest repository work?\\
+\href{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}
+{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}}
+\\
+\\
+The \cmd{default.xml} file is symlinked to \cmd{.repo/manifest.xml} and
+is created when the repo was initialized using:
+\\
+\\
+\cmd{repo init -u $<$manifest path$>$}
+
+
+%% ======================== Examples =============================
+%% ======================== Examples =============================
+\subsubsection{Examples}
+Following is a manifest, in \cmd{.repo/manifests/default.xml} file, showing use
+of GitHub with username, ssh:// URL syntax, and 3 project repos
+with different usernames:\footnote{Keiji Ariyama, \href{https://github.com/keiji/repo-sample/blob/master/default.xml}{https://github.com/keiji/repo-sample/blob/master/default.xml}}
+
+\begin{Verbatim}
+ <?xml version="1.0" encoding="UTF-8"?>
+ <manifest>
+   <remote name="origin" fetch="ssh://git@github.com/" />
+   <default revision="master" remote="origin" />
+
+   <project path="lib/plist-lib"
+            name="keiji/AndroidPListLib.git" remote="origin" />
+
+   <project path="lib/json-pull-parser"
+            name="vvakame/JsonPullParser.git" remote="origin" />
+
+   <project path="apps/twicca_megane_plugin"
+            name="zaki50/TwiccaMeganePlugin.git" remote="origin" />
+ </manifest>
+\end{Verbatim}
+
+
+%% ======================== Commands =============================
+%% ======================== Commands =============================
+\newpage
+\subsection{Commands}
+Repo usage takes the following form:\footnote{Repo command reference\\
+\href{https://source.android.com/source/using-repo.html\#help}{https://source.android.com/source/using-repo.html\#help}}
+\\
+\indent \cmd{repo <COMMAND> <OPTIONS>}
+\\
+\\
+Optional elements are shown in brackets [ ].  For example, many commands take
+a project list as an argument.  You can specify project-list as a list of
+names or a list of paths to local source directories for the projects:
+
+\indent \cmd{repo sync [<PROJECT0> <PROJECT1> <PROJECTN>]}\\
+\indent \cmd{repo sync [</PATH/TO/PROJECT0> ... </PATH/TO/PROJECTN>]}
+\\
+
+\noindent Once Repo is installed, you can find the latest documentation
+starting with a summary of all commands by running:
+\\
+\indent \cmd{repo help}
+\\
+\\
+\noindent You can get information about any command by running this within a Repo tree:
+\\
+\indent \cmd{repo help <COMMAND>}
+\\
+\\
+NOTE: For \cmd{repo} commands without syntax here see the 
+Repo command reference.\footnote{Ibid.}
+
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|p{.25\textwidth}|p{.47\textwidth}|}\hline
+Command&Description\\
+\hline
+abandon&Permanently abandon a development branch\\
+branch&View current topic branches\\
+branches&View current topic branches\\
+checkout&Checkout a branch for development\\
+cherry-pick&Cherry-pick a change\\
+diff&Show changes between commit and working tree\\
+diffmanifests&Manifest diff utility\\
+download&Download and checkout a change\\
+grep&Print lines matching a pattern\\
+forall&Executes the given shell command in each project.\footnote{Repo command reference --
+\href{https://source.android.com/source/using-repo.html\#forall}{https://source.android.com/source/using-repo.html\#forall}}\\
+help&Display detailed help on a command\\
+info&Get info on the manifest branch, current branch or unmerged branches\\
+init&Install repo in the current working directory\\
+list&List projects and their associated directories\\
+overview&Display overview of unmerged project branches\\
+prune&Prune (delete) already merged topics\\
+rebase&Rebase local branches on upstream branch\\
+start& Start a new branch for development\\
+status&Show the working tree status\\
+sync&Update working tree to the latest revision\\
+upload&Upload changes for code review\\
+\hline
+\end{tabular}
+\caption {Repo Commands}
+\label{table:commands}
+\end{center}
+\end{table}
+
+
+
+%% ========================== init ===============================
+%% ========================== init ===============================
+\clearpage
+\subsubsection{init}
+\cmd{\$ repo init -u <URL> [<OPTIONS>]}
+\\
+Installs Repo in the current directory. This creates a \cmd{.repo/}
+directory that contains Git repositories for the Repo source code
+and the standard Android manifest files.  The \cmd{.repo/}
+directory also contains \cmd{manifest.xml}, which is a symlink to the
+selected manifest in the \cmd{.repo/manifests/} directory.\footnote{Repo command reference --
+\href{https://source.android.com/source/using-repo.html\#forall}{https://source.android.com/source/using-repo.html}}\\
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|p{.15\textwidth}|p{.75\textwidth}|}\hline
+\centering Command&\centering Description\tabularnewline
+\hline
+\centering -u&Specify a URL from which to retrieve a manifest repository.
+The common manifest can be found at:
+\cmd{https://android.googlesource.com/platform/manifest}\\
+\centering -m&Select a manifest file within the repository. If no manifest
+ name is selected, the default is default.xml.\\
+\centering -b&Specify a revision, i.e., a particular manifest-branch.\\
+\hline
+\end{tabular}
+\caption {init Options}
+\label{table:init_options}
+\end{center}
+\end{table}
+
+%% ======================== Examples =============================
+%% ======================== Examples =============================
+\subsubsection{Examples}
+This will create a new place to hold your local copy of the source
+tree.   ``url'' should point to a Manifest repository that
+describes the whole sources.  It is a special project with a file
+(default.xml) that lists all the projects that Android is made of.
+In the Manifest file, each projects has attributes about: where to
+place it in the tree, where to download it from (git server),
+revision that will be used (usually a branch name, tag or commit
+sha-id).\footnote{Repo: Tips \& Tricks,\\
+\href{http://xda-university.com/as-a-developer/repo-tips-tricks}{http://xda-university.com/as-a-developer/repo-tips-tricks}}
+\\
+\\
+\indent\cmd{repo init -u <url> -b <branch>}
+\\
+\\
+\noindent Note: For all remaining Repo commands, the current working
+directory must either be the parent directory of \cmd{.repo/}
+or a subdirectory of the parent directory.\footnote{Repo command reference --
+\href{https://source.android.com/source/using-repo.html\#forall}{https://source.android.com/source/using-repo.html}}\\
+\\
+\\
+\noindent \FIXME{Need example of GitHub checkout}
