@@ -9,9 +9,11 @@
 # List of repo hierarchical directories to checkout under tex/
 #
 # appendix/   Appendix
+# cloud/      Cloud Repository
 # github/     GitHub
 # repo/       Google's repo
 #
 ../../tex/appendix/appendix   ./appendix
+../../tex/cloud/cloud         ./cloud
 ../../tex/github/github       ./github
 ../../tex/repo/repo           ./repo
