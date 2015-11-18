@@ -860,7 +860,9 @@ for open source projects.\\
 \begin{center}
 \framebox{
 \begin{minipage}[t]{0.9\textwidth}
-\begin{bf}Pushing from local repository to GitHub hosted remote\end{bf}\\
+\begin{bf}Pushing from local repository to GitHub hosted remote\end{bf}
+\\
+\\
 You push your local repository to the remote repository
 using the git push command after first establishing a
 relationship between the two with the
@@ -883,8 +885,29 @@ After your first push, you can simply type:\\
 \hspace*{20pt}\cmd{git push}
 \\
 \\
-when you want to update the remote repository in the future.\footnotemark
-
+when you want to update the remote repository in the future.\\
+\hspace*{20pt}edited Jul 10 '14 at 14:17 by thomio\\
+\hspace*{20pt}answered May 13 '12 at 18:01 by larsks
+\\
+...
+\\
+Subversion implicitly has the remote repository associated with
+it at all times. Git, on the other hand, allows many ``remotes'',
+each of which represents a single remote place you can push to
+or pull from.
+\\
+\\
+You need to add a remote for the GitHub repository to your local
+repository, then use \cmd{git push <REMOTE>} or
+\cmd{git pull <REMOTE>} to push and pull respectively -
+or the GUI equivalents.
+\\
+...
+\\
+Once you have associated the two you will be able to push
+or pull branches.
+\hspace*{20pt}answered May 13 '12 at 18:01\\
+\hspace*{20pt}by Daniel Pittman
 \end{minipage}
 }
 \end{center}
