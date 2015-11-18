@@ -8,6 +8,8 @@
 #
 # List of repo hierarchical directories to checkout under tex/
 #
-# repo/   Google's repo
+# appendix/   Appendix
+# repo/       Google's repo
 #
-../../tex/repo/repo   ./repo
+../../tex/appendix/appendix   ./appendix
+../../tex/repo/repo           ./repo
