@@ -1,0 +1,36 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% branching-tagging.tex
+%% Created Tue Nov 17 15:18:14 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Branching & Tagging
+%%
+
+%% =================== Branching & Tagging =======================
+%% =================== Branching & Tagging =======================
+\newpage
+\section{Branching \& Tagging}
+
+In short: Best practice is branch out, merge often and keep
+always in sync.\\
+\\
+\noindent There are pretty clear conventions about keeping your
+code in a separate branches from master branch:
+
+\begin{enumerate*}
+\item You are about to make an implementation of major or
+disruptive change
+\item You are about to make some changes that might not be used
+\item You want to experiment on something that you are not sure
+    it will work
+\item When you are told to branch out, others might have
+    something they need to do in master
+\end{enumerate*}
+
+\noindent Rule of thumb is after branching out, you should keep in sync with
+the master branch. Because eventually you need to merge it back to master. In
+order to avoid a huge complicated mess of conflicts when merging back, you
+should commit often, merge often.\footnote{Git branching and tagging best
+practices\\
+\href{http://programmers.stackexchange.com/questions/165725/git-branching-and-tagging-best-practices}{http://programmers.stackexchange.com/questions/165725/git-branching-and-tagging-best-practices}}
