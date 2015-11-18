@@ -9,7 +9,9 @@
 # List of repo hierarchical directories to checkout under tex/
 #
 # appendix/   Appendix
+# github/     GitHub
 # repo/       Google's repo
 #
 ../../tex/appendix/appendix   ./appendix
+../../tex/github/github       ./github
 ../../tex/repo/repo           ./repo
