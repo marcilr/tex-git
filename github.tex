@@ -1,0 +1,268 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% github.tex
+%% Created Tue Nov 17 15:36:52 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% GitHub
+%%
+
+%% ========================= GitHub ==============================
+%% ========================= GitHub ==============================
+\subsection{GitHub}
+
+\FIXME{Still need cli list, rename, and delete functionality.}
+
+\begin{center}
+\framebox{
+\begin{minipage}[t]{0.9\textwidth}
+\begin{bf}Pushing from local repository to GitHub hosted remote\end{bf}
+\\
+\\
+You push your local repository to the remote repository
+using the git push command after first establishing a
+relationship between the two with the
+\cmd{git remote add [alias] [url]} command. If you visit
+your Github repository, it will show you the URL to use
+for pushing. You'll first enter something like:\\
+\hspace*{20pt}\cmd{git remote add origin git@github.com:username/reponame.git}
+\\
+\\
+Unless you started by running git clone against the remote
+repository, in which case this step has been done for you 
+already.
+\\
+\\
+And after that, you'll type:\\
+\hspace*{20pt}\cmd{git push origin master}
+\\
+\\
+After your first push, you can simply type:\\
+\hspace*{20pt}\cmd{git push}
+\\
+\\
+when you want to update the remote repository in the future.\\
+\hspace*{20pt}edited Jul 10 '14 at 14:17 by thomio\\
+\hspace*{20pt}answered May 13 '12 at 18:01 by larsks
+\\
+...
+\\
+Subversion implicitly has the remote repository associated with
+it at all times. Git, on the other hand, allows many ``remotes'',
+each of which represents a single remote place you can push to
+or pull from.
+\\
+\\
+You need to add a remote for the GitHub repository to your local
+repository, then use \cmd{git push <REMOTE>} or
+\cmd{git pull <REMOTE>} to push and pull respectively -
+or the GUI equivalents.
+\\
+...
+\\
+Once you have associated the two you will be able to push
+or pull branches.
+\hspace*{20pt}answered May 13 '12 at 18:01\\
+\hspace*{20pt}by Daniel Pittman
+\end{minipage}
+}
+\end{center}
+
+\footnotetext{Pushing from local repository to GitHub hosted remote,\\
+\href{http://stackoverflow.com/questions/10573957/pushing-from-local-repository-to-github-hosted-remote}{http://stackoverflow.com/questions/10573957/pushing-from-local-repository-to-github-hosted-remote}}
+
+%% ========= Caching your GitHub password in Git =================
+%% ========= Caching your GitHub password in Git =================
+\subsubsection{Caching your GitHub password in Git}
+If you're cloning GitHub repositories using HTTPS, you can use a
+credential helper to tell Git to remember your GitHub username
+and password every time it talks to GitHub.
+\\
+\\
+If you clone GitHub repositories using SSH, then you authenticate
+using SSH keys instead of a username and password.  For help
+setting up an SSH connection, see Generating SSH Keys.\footnote{Generating SSH keys,
+\href{https://help.github.com/articles/generating-ssh-keys/}{https://help.github.com/articles/generating-ssh-keys/}}
+\\
+\\
+Turn on the credential helper so that Git will save your password
+in memory for some time.  By default, Git will cache your password
+for 15 minutes.\footnote{Caching your GitHub password in Git,
+\href{https://help.github.com/articles/caching-your-github-password-in-git/}{https://help.github.com/articles/caching-your-github-password-in-git/}}
+
+\begin{enumerate}
+  \item{In Terminal, enter the following:
+\begin{Verbatim}
+ $ git config --global credential.helper cache
+ # Set git to use the credential memory cache
+\end{Verbatim}
+       }
+  \item{To change the default password cache timeout, enter the following:
+\begin{Verbatim}
+ $ git config --global credential.helper 'cache --timeout=3600'
+ # Set the cache to timeout after 1 hour (setting is in seconds)
+\end{Verbatim}
+       }
+\end{enumerate}
+
+\noindent \FIXME{The GitHub user and pass got saved by alternate means.  How was that done?}
+
+\subsubsection{Create a Github Repo from the Command Line}
+Creating a GitHub repository from the command line is incredibly
+convenient.
+\\
+\\
+Googled up some simple shell script to create GitHub repo via
+command line:
+
+\begin{verbatim}
+  "curl -u $username:$token" https://api.github.com/user/repos \
+  -d '{"name":"'$repo_name'"}'}
+\end{verbatim}
+
+\noindent To use, you could simply replace \cmd{\$username} with your
+GitHub username, \cmd{\$token} with a Personal Access Token\footnote{GitHub
+supports Personal access tokens, under Settings, click Personal access
+tokens. Personal access tokens function like ordinary OAuth access tokens.
+They can be used instead of a password for Git over HTTPS, or can be used
+to authenticate to the API over Basic Authentication.  I set mine to the usual:)\\
+\href{https://github.com/settings/tokens}{https://github.com/settings/tokens}}
+for the same user (available for generation in your GitHub\\
+Settings $>$ Applications), and \cmd{\$repo\_name} with your
+desired new Repository name.\footnote{Create a Github Repo
+from the Command Line, by Eli Fatsi - Jan 29, 2014,\\
+\href{https://viget.com/extend/create-a-github-repo-from-the-command-line}{https://viget.com/extend/create-a-github-repo-from-the-command-line}}
+\\
+\\
+Creating a repo from the command line is definitely faster
+than going to Github and using the web app to get the job
+done, but in order to truly make this task speedy, we need
+some Bash programming.
+
+\newpage
+\begin{Verbatim}
+github-create() {
+  repo_name=$1
+ 
+  dir_name=`basename $(pwd)`
+ 
+  if [ "$repo_name" = "" ]; then
+    echo "Repo name (hit enter to use '$dir_name')?"
+    read repo_name
+  fi
+ 
+  if [ "$repo_name" = "" ]; then
+    repo_name=$dir_name
+  fi
+ 
+  username=`git config github.user`
+  if [ "$username" = "" ]; then
+    echo "Could not find username, run 'git config \
+    --global github.user <username>'"
+    invalid_credentials=1
+  fi
+ 
+  token=`git config github.token`
+  if [ "$token" = "" ]; then
+    echo "Could not find token, run 'git config \
+    --global github.token <token>'"
+    invalid_credentials=1
+  fi
+ 
+  if [ "$invalid_credentials" == "1" ]; then
+    return 1
+  fi
+ 
+  echo -n "Creating Github repository '$repo_name' ..."
+  curl -u "$username:$token" https://api.github.com/user/repos \
+  -d '{"name":"'$repo_name'"}' > /dev/null 2>&1
+  echo " done."
+ 
+  echo -n "Pushing local code to remote ..."
+  git remote add origin git@github.com:$username/$repo_name.git \
+  > /dev/null 2>&1
+  git push -u origin master > /dev/null 2>&1
+  echo " done."
+}
+\end{Verbatim}
+
+\noindent Plop this function into your \cmd{\textasciitilde/.bash\_profile}, open a new
+Terminal window or source \cmd{\textasciitilde/.bash\_profile}, and the function
+will be loaded up and ready for use.
+\\
+\\
+Then while in an existing git project, running \cmd{github-create}
+will create the repo and push your master branch up in one shot.
+You will need to set some github config variables (instructions
+will be spit out if you don't have them).  Here’s an example:
+\\
+\\
+\begin{Verbatim}
+ BASH:projects $ rails new my_new_project
+   ..... (a whole lot of generated things)
+ BASH:projects $ cd my_new_project/
+ BASH:my_new_project $ git init && git add . && git commit \
+ -m 'Initial commit'
+  ..... (a whole lot of git additions)
+ BASH:my_new_project $ github-create
+   Repo name (hit enter to use 'my_new_project')?
+ 
+   Creating Github repository 'my_new_project' ... done.
+   Pushing local code to remote ... done.
+\end{Verbatim}
+
+\noindent Had I called the function with an argument — \cmd{github-create my\_project} —
+then it would have used the argument and skipped the Repo name question.\footnote{Create a Github Repo
+from the Command Line, by Eli Fatsi - Jan 29, 2014,\\
+\href{https://viget.com/extend/create-a-github-repo-from-the-command-line}{https://viget.com/extend/create-a-github-repo-from-the-command-line}}
+\\
+\\
+On GCI Network Services, OSS \cmd{covellite} Debian jessie 8.2
+workstation the \cmd{gtihub-create} did not execute.  Put
+github-create() into a standalone \cmd{\textasciitilde/gtihub-create}
+script with call to \cmd{gtihub-create()} under main.
+\\
+\\
+Tested with:
+\begin{Verbatim}
+ $ mkdir ~/quux
+ $ cd ~/quux
+ $ git init
+ Initialized empty Git repository in /home/marcilr/quux/.git/
+ $ github-create 
+ Repo name (hit enter to use 'quux')?
+
+ Could not find username, run 'git config --global github.user <username>'
+ Could not find token, run 'git config --global github.token <token>'
+ $
+\end{Verbatim}
+
+\newpage
+\noindent Configured the GetHub username and token to alleviate GutHub credential errors:
+\begin{Verbatim}
+ $ git config --global github.user marcilr
+ $ git config --global github.token <token>
+\end{Verbatim}
+
+\noindent Was then able to run \cmd{\textasciitilde/github-create} successfully:
+\begin{Verbatim}
+ $ cd ~/quux/
+ $ github-create
+ Repo name (hit enter to use 'quux')? <enter>
+
+ Creating Github repository 'quux' ... done.
+ Pushing local code to remote ... done.
+ $
+\end{Verbatim}
+
+\noindent Checking GitHub via online access I found the new \cmd{quux} repo.
+\\
+\\
+\noindent \FIXME{Need Bitbucket vs. GitHub section}
+
+
+%% Adding an existing project to GitHub using the command line
+%% https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
+%% Adding a file to a repository from the command line
+%% https://help.github.com/articles/adding-a-file-to-a-repository-from-the-command-line/
