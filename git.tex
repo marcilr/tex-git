@@ -857,6 +857,40 @@ for open source projects.\\
 
 \FIXME{Still need cli list, rename, and delete functionality.}
 
+\begin{center}
+\framebox{
+\begin{minipage}[t]{0.9\textwidth}
+\begin{bf}Pushing from local repository to GitHub hosted remote\end{bf}\\
+You push your local repository to the remote repository
+using the git push command after first establishing a
+relationship between the two with the
+\cmd{git remote add [alias] [url]} command. If you visit
+your Github repository, it will show you the URL to use
+for pushing. You'll first enter something like:\\
+\hspace*{20pt}\cmd{git remote add origin git@github.com:username/reponame.git}
+\\
+\\
+Unless you started by running git clone against the remote
+repository, in which case this step has been done for you 
+already.
+\\
+\\
+And after that, you'll type:\\
+\hspace*{20pt}\cmd{git push origin master}
+\\
+\\
+After your first push, you can simply type:\\
+\hspace*{20pt}\cmd{git push}
+\\
+\\
+when you want to update the remote repository in the future.\footnotemark
+
+\end{minipage}
+}
+\end{center}
+
+\footnotetext{Pushing from local repository to GitHub hosted remote,\\
+\href{http://stackoverflow.com/questions/10573957/pushing-from-local-repository-to-github-hosted-remote}{http://stackoverflow.com/questions/10573957/pushing-from-local-repository-to-github-hosted-remote}}
 
 %% ========= Caching your GitHub password in Git =================
 %% ========= Caching your GitHub password in Git =================
