@@ -22,6 +22,6 @@
 ../../tex/branching-tagging/branching-tagging   ./branching-tagging
 ../../tex/cloud/cloud                           ./cloud
 ../../tex/command-reference/command-reference   ./command-reference
-../../tex/introduction/introduction             ./introductio
+../../tex/introduction/introduction             ./introduction
 ../../tex/repo/repo                             ./repo
 ../../tex/ssh/ssh                               ./ssh
