@@ -31,60 +31,8 @@ Command&Description\\
 from the Pro Git book.\footnote{Pro Git book, \href{http://git-scm.com/book/en/Git-Basics-Working-with-Remotes}{http://git-scm.com/book/en/Git-Basics-Working-with-Remotes}}
 
 
-%% ===================== git remote add =========================
-%% ===================== git remote add =========================
-\newpage
-\subsubsection{git remote add}
-To add a new remote, use the \cmd{git remote add} command on the
-terminal, in the directory your repository is stored at.\footnote{Adding a remote,
-\href{https://help.github.com/articles/adding-a-remote/}{https://help.github.com/articles/adding-a-remote/}}
-\\
-\\
-The \cmd{git remote add} command takes two arguments:
-\vspace{-10pt}
-\begin{verbatim}
-$ git remote add <NAME> <REMOTE_URL> 
-\end{verbatim}
-
-\noindent Where:
-\vspace{-10pt}
-\begin{table}[htb]
-%%\begin{table}
-\begin{center}
-\begin{tabular}{p{.20\textwidth}p{.80\textwidth}}
-\hspace{20pt}\cmd{<NAME>}&- A remote name, for example, \cmd{origin}\\
-\hspace{20pt}\cmd{<REMOTE\_URL>}&- A remote URL, for example, \cmd{https://github.com/user/repo.git}\\
-\end{tabular}
-\label{table:remote_add}
-\end{center}
-\end{table}
-
-\vspace{-20pt}
-\noindent Git associates a remote URL with a name, and your
-default remote is usually called origin.\footnote{About remote repositories,
-\href{https://help.github.com/articles/about-remote-repositories/}{https://help.github.com/articles/about-remote-repositories/}}
-\\
-
-%% ======================== Examples ============================
-%% ======================== Examples ============================
-\vspace{10pt}
-\noindent \begin{bf}Examples\end{bf}
-\begin{Verbatim}
- # This associates the name origin with SSH URL for repo.git repository.
- $ git remote add origin git@github.com:user/repo.git
-\end{Verbatim}
-
-\noindent Alternatively using https syntax:
-
-\begin{Verbatim}
- $ git remote add origin https://github.com/user/repo.git
- # Set a new remote
-
- $ git remote -v
- # Verify new remote
- origin  https://github.com/user/repo.git (fetch)
- origin  https://github.com/user/repo.git (push)
-\end{Verbatim}
+%% git remote add
+\input{command-reference/remotes/commands/git-remote-add.tex}
 
 
 %% =================== git remote set-url =======================
