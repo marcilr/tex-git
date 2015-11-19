@@ -10,8 +10,6 @@
 #
 # branching-tagging/   Branching & Tagging
 # commands/            Commands
-# remotes/             Remote Repositories
 #
 ../../repositories/branching-tagging/branching-tagging   ./branching-tagging
 ../../repositories/commands/commands                     ./commands
-../../repositories/remotes/remotes                       ./remotes
