@@ -16,6 +16,7 @@
 # remotes/               Remote Repositories
 # repo/                  Google's repo
 # introduction/          Introduction
+# repositories/          Repositories
 # ssh/                   The SSH Protocol
 #
 ../../tex/abbreviations/abbreviations           ./abbreviations
@@ -23,7 +24,8 @@
 ../../tex/branching-tagging/branching-tagging   ./branching-tagging
 ../../tex/cloud/cloud                           ./cloud
 ../../tex/commands/commands                     ./commands
-../../tex/remotes/remotes                       ./remotes
+#../../tex/remotes/remotes                       ./remotes
 ../../tex/introduction/introduction             ./introduction
 ../../tex/repo/repo                             ./repo
+../../tex/repositories/repositories             ./repositories
 ../../tex/ssh/ssh                               ./ssh
