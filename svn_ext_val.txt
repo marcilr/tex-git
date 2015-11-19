@@ -1,0 +1,13 @@
+#
+# svn_ext_val.txt
+# Created Thu Nov 19 11:15:38 AKST 2015
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+
+
+#
+# List of repo hierarchical directories to checkout under repositories/
+#
+# remotes/   Remote Repositories
+#
+../../repositories/remotes/remotes   ./remotes
