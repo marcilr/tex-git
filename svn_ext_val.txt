@@ -17,7 +17,6 @@
 # repo/                  Google's repo
 # introduction/          Introduction
 # repositories/          Repositories
-# ssh/                   The SSH Protocol
 #
 ../../tex/abbreviations/abbreviations           ./abbreviations
 ../../tex/appendix/appendix                     ./appendix
@@ -28,4 +27,3 @@
 ../../tex/introduction/introduction             ./introduction
 ../../tex/repo/repo                             ./repo
 ../../tex/repositories/repositories             ./repositories
-../../tex/ssh/ssh                               ./ssh
