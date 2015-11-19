@@ -1,0 +1,291 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% remotes.tex
+%% Created Wed Nov 18 15:00:41 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Remotes
+%%
+
+%% ========================= Remotes =============================
+%% ========================= Remotes =============================
+\newpage
+\subsection{Remotes}
+``To be able to collaborate on any Git project, you need to know
+how to manage your remote repositories.  Remote repositories are
+versions of your project that are hosted on the Internet or
+network somewhere.  You can have several of them, each of which
+generally is either read-only or read/write for you.
+Collaborating with others involves managing these remote
+repositories and pushing and pulling data to and from them when
+you need to share work.  Managing remote repositories includes
+knowing how to add remote repositories, remove remotes that are no
+longer valid, manage various remote branches and define them as
+being tracked or not, and more. In this section, we'll cover some
+of these remote-management skills.''\footnote{Git Basics - Working
+with Remotes,\\
+\href{http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes}{http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes}}
+
+
+%% ================== Remote Repositories ========================
+%% ================== Remote Repositories ========================
+\subsubsection{Remote Repositories}
+GitHub's collaborative approach to development depends on
+publishing commits from your local repository for other people to
+view, fetch, and update.\footnote{About remote repositories,
+\href{https://help.github.com/articles/about-remote-repositories/}{https://help.github.com/articles/about-remote-repositories/}}
+\\
+\\
+A remote URL is Git's fancy way of saying ``the place where your
+code is stored.'' That URL could be your repository on GitHub, or
+another user's fork, or even on a completely different server.
+\\
+\\
+You can only push to two types of URL addresses:
+\\
+\\
+$>$ An HTTPS URL like \cmd{https://github.com/user/repo.git}\\
+$>$ An SSH URL, like \cmd{git@github.com:user/repo.git}\\
+\\
+Git associates a remote URL with a name, and your default remote is usually called origin.
+
+
+%% ===================== Remote Commands =========================
+%% ===================== Remote Commands =========================
+\newpage
+\subsubsection{Remote Commands}
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|p{.20\textwidth}|p{.70\textwidth}|}\hline
+Command&Description\\
+\hline
+\cmd{remote add}&Add a new remote in the directory your repository is stored at.\\
+\cmd{remote set-url}&Change a remote's URL.\\
+\cmd{remote rename}&Rename an existing remote.\\
+\cmd{remote rm}&Remove a remote URL from your repository.\\
+\hline
+\end{tabular}
+\caption {Remote Commands}
+\label{table:remote_commands}
+\end{center}
+\end{table}
+
+\noindent For further reading see ``\href{http://git-scm.com/book/en/Git-Basics-Working-with-Remotes}{Working with Remotes}''
+from the Pro Git book.\footnote{Pro Git book, \href{http://git-scm.com/book/en/Git-Basics-Working-with-Remotes}{http://git-scm.com/book/en/Git-Basics-Working-with-Remotes}}
+
+
+%% ===================== git remote add =========================
+%% ===================== git remote add =========================
+\newpage
+\subsubsection{git remote add}
+To add a new remote, use the \cmd{git remote add} command on the
+terminal, in the directory your repository is stored at.\footnote{Adding a remote,
+\href{https://help.github.com/articles/adding-a-remote/}{https://help.github.com/articles/adding-a-remote/}}
+\\
+\\
+The \cmd{git remote add} command takes two arguments:
+\vspace{-10pt}
+\begin{verbatim}
+$ git remote add <NAME> <REMOTE_URL> 
+\end{verbatim}
+
+\noindent Where:
+\vspace{-10pt}
+\begin{table}[htb]
+%%\begin{table}
+\begin{center}
+\begin{tabular}{p{.20\textwidth}p{.80\textwidth}}
+\hspace{20pt}\cmd{<NAME>}&- A remote name, for example, \cmd{origin}\\
+\hspace{20pt}\cmd{<REMOTE\_URL>}&- A remote URL, for example, \cmd{https://github.com/user/repo.git}\\
+\end{tabular}
+\label{table:remote_add}
+\end{center}
+\end{table}
+
+\vspace{-20pt}
+\noindent Git associates a remote URL with a name, and your
+default remote is usually called origin.\footnote{About remote repositories,
+\href{https://help.github.com/articles/about-remote-repositories/}{https://help.github.com/articles/about-remote-repositories/}}
+\\
+
+%% ======================== Examples ============================
+%% ======================== Examples ============================
+\vspace{10pt}
+\noindent \begin{bf}Examples\end{bf}
+\begin{Verbatim}
+ # This associates the name origin with SSH URL for repo.git repository.
+ $ git remote add origin git@github.com:user/repo.git
+\end{Verbatim}
+
+\noindent Alternatively using https syntax:
+
+\begin{Verbatim}
+ $ git remote add origin https://github.com/user/repo.git
+ # Set a new remote
+
+ $ git remote -v
+ # Verify new remote
+ origin  https://github.com/user/repo.git (fetch)
+ origin  https://github.com/user/repo.git (push)
+\end{Verbatim}
+
+
+%% =================== git remote set-url =======================
+%% =================== git remote set-url =======================
+\newpage
+\subsubsection{git remote set-url}
+The \cmd{git remote set-url} command changes an existing remote
+repository URL.\footnote{Changing a remote's URL,
+\href{https://help.github.com/articles/changing-a-remote-s-url/}{https://help.github.com/articles/changing-a-remote-s-url/}}
+\\
+\\
+The git remote set-url command takes two arguments:
+\\
+$>$ An existing remote name. For example, \cmd{origin} or \cmd{upstream} are two common choices.\\
+$>$ A new URL for the remote. For example:\\
+
+\noindent\hspace*{10pt}$>$ If you're updating to use HTTPS, your URL might look like:\\
+\noindent\hspace*{23pt}\cmd{https://github.com/USERNAME/OTHERREPOSITORY.git}\\
+\\
+\noindent\hspace*{10pt}$>$ If you're updating to use SSH, your URL might look like:\\
+\noindent\hspace*{23pt}\cmd{git@github.com:USERNAME/OTHERREPOSITORY.git}
+
+
+%% ========= Switching remote URLs from SSH to HTTPS ===========
+%% ========= Switching remote URLs from SSH to HTTPS ===========
+\subsubsection{Switching remote URLs from SSH to HTTPS}
+\begin{enumerate}
+  \item{Open Terminal (for Mac and Linux users) or the command prompt
+       (for Windows users).\footnote{Switching remote URLs from HTTPS to SSH,
+       \href{https://help.github.com/articles/changing-a-remote-s-url/}{https://help.github.com/articles/changing-a-remote-s-url/}}}
+  \item{Change the current working directory to your local project.}
+  \item{List your existing remotes in order to get the name of the remote you want to change.
+\begin{Verbatim}
+ $ git remote -v
+ # origin  git@github.com:USERNAME/REPOSITORY.git (fetch)
+ # origin  git@github.com:USERNAME/REPOSITORY.git (push)
+\end{Verbatim}
+       }
+  \item{Change your remote's URL from SSH to HTTPS with the git remote set-url command.
+\begin{Verbatim}
+ $ git remote set-url origin \
+ https://github.com/USERNAME/OTHERREPOSITORY.git
+\end{Verbatim}
+      }
+
+  \item{Verify that the remote URL has changed.
+\begin{Verbatim}
+$ git remote -v
+# Verify new remote URL
+# origin  https://github.com/USERNAME/OTHERREPOSITORY.git (fetch)
+# origin  https://github.com/USERNAME/OTHERREPOSITORY.git (push)
+\end{Verbatim}
+       }
+\end{enumerate}
+
+
+%% ========= Switching remote URLs from HTTPS to SSH ===========
+%% ========= Switching remote URLs from HTTPS to SSH ===========
+\newpage
+\subsubsection{Switching remote URLs from HTTPS to SSH}
+\begin{enumerate}
+  \item{Open Terminal (for Mac and Linux users) or the command prompt
+       (for Windows users).\footnote{Switching remote URLs from HTTPS to SSH,
+       \href{https://help.github.com/articles/changing-a-remote-s-url/}{https://help.github.com/articles/changing-a-remote-s-url/}}}
+  \item{Change the current working directory to your local project.}
+  \item{List your existing remotes in order to get the name of the remote you want to change.
+\begin{Verbatim}
+ $ git remote -v
+ origin  https://github.com/USERNAME/REPOSITORY.git (fetch)
+ origin  https://github.com/USERNAME/REPOSITORY.git (push)
+\end{Verbatim}
+       }
+  \item{Change your remote's URL from HTTPS to SSH with the git remote set-url command.
+\begin{Verbatim}
+ $ git remote set-url origin \
+ git@github.com:USERNAME/OTHERREPOSITORY.git
+\end{Verbatim}
+      }
+
+  \item{Verify that the remote URL has changed.
+\begin{Verbatim}
+ $ git remote -v
+ # Verify new remote URL
+ origin  git@github.com:USERNAME/OTHERREPOSITORY.git (fetch)
+ origin  git@github.com:USERNAME/OTHERREPOSITORY.git (push)
+\end{Verbatim}
+       }
+\end{enumerate}
+
+
+%% ==================== git remote rename ======================
+%% ==================== git remote rename ======================
+\subsubsection{git remote rename}
+Use the git remote rename command to rename an existing remote.\footnote{Renaming a remote,
+\href{https://help.github.com/articles/renaming-a-remote/}{https://help.github.com/articles/renaming-a-remote/}}
+\\
+\\
+The git remote rename command takes two arguments:
+\\
+\\
+$>$ An existing remote name, for example, origin A new name for the\\
+$>$ remote, for example, destination
+
+\newpage
+\noindent \begin{bf}Example\end{bf}\\
+The examples below assume you're cloning using HTTPS, which is recommended.
+
+\begin{Verbatim}
+ $ git remote -v
+ # View existing remotes
+ origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+ origin  https://github.com/OWNER/REPOSITORY.git (push)
+
+ $ git remote rename origin destination
+ # Change remote name from 'origin' to 'destination'
+
+ $ git remote -v
+ # Verify remote's new name
+ destination  https://github.com/OWNER/REPOSITORY.git (fetch)
+ destination  https://github.com/OWNER/REPOSITORY.git (push)
+\end{Verbatim}
+
+
+%% ====================== git remote rm ======================
+%% ====================== git remote rm ======================
+\subsubsection{git remote rm}
+Use the \cmd{git remote rm} command to remove a remote URL
+from your repository.\footnote{Removing a remote,
+\href{https://help.github.com/articles/removing-a-remote/}{https://help.github.com/articles/removing-a-remote/}}
+\\
+\\
+The \cmd{git remote rm} command takes one argument:
+\\
+\\
+$>$ A remote name, for example, destination
+\\
+\\
+\noindent \begin{bf}Example\end{bf}
+\\
+\\
+The examples below assume you're cloning using HTTPS, which is recommended.
+
+\begin{Verbatim}
+ $ git remote -v
+ # View current remotes
+ origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+ origin  https://github.com/OWNER/REPOSITORY.git (push)
+ destination  https://github.com/FORKER/REPOSITORY.git (fetch)
+ destination  https://github.com/FORKER/REPOSITORY.git (push)
+
+ $ git remote rm destination
+ # Remove remote
+ $ git remote -v
+ # Verify it's gone
+ origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+ origin  https://github.com/OWNER/REPOSITORY.git (push)
+\end{Verbatim}
+
+\noindent Note: \cmd{git remote rm} does not delete the remote
+repository from the server.  It simply removes the remote and
+its references from your local repository.
