@@ -10,4 +10,4 @@
 #
 # commands/   Remote Commands
 #
-../../remote-repositories/commands/commands   ./commands
+../../remotes/commands/commands   ./commands
