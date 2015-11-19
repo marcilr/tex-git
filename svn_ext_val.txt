@@ -12,7 +12,6 @@
 # appendix/              Appendix
 # branching-tagging/     Branching & Tagging
 # cloud/                 Cloud Repository
-# remotes/               Remote Repositories
 # repo/                  Google's repo
 # introduction/          Introduction
 # repositories/          Repositories
@@ -21,7 +20,6 @@
 ../../tex/appendix/appendix                     ./appendix
 ../../tex/branching-tagging/branching-tagging   ./branching-tagging
 ../../tex/cloud/cloud                           ./cloud
-#../../tex/remotes/remotes                       ./remotes
 ../../tex/introduction/introduction             ./introduction
 ../../tex/repo/repo                             ./repo
 ../../tex/repositories/repositories             ./repositories
