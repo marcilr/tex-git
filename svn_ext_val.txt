@@ -8,8 +8,10 @@
 #
 # List of repo hierarchical directories to checkout under repositories/
 #
-# commands/   Commands
-# remotes/    Remote Repositories
+# branching-tagging/   Branching & Tagging
+# commands/            Commands
+# remotes/             Remote Repositories
 #
-../../repositories/commands/commands   ./commands
-../../repositories/remotes/remotes     ./remotes
+../../repositories/branching-tagging/branching-tagging   ./branching-tagging
+../../repositories/commands/commands                     ./commands
+../../repositories/remotes/remotes                       ./remotes
