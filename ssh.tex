@@ -1,0 +1,71 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% ssh.tex
+%% Created Wed Nov 18 15:00:41 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% The SSH Protocol
+%%
+
+
+%% ==================== The SSH Protocol =========================
+%% ==================== The SSH Protocol =========================
+\newpage
+\section{The SSH Protocol}
+A common transport protocol for Git when self-hosting is over SSH.
+This is because SSH access to servers is already set up in most
+places – and if it isn’t, it's easy to do.  SSH is also an
+authenticated network protocol; and because it’s ubiquitous,
+it's generally easy to set up and use.
+\\
+\\
+If you have two-factor authentication\footnote{About Two-Factor Authentication,
+\href{https://help.github.com/articles/about-two-factor-authentication/}{https://help.github.com/articles/about-two-factor-authentication/}}
+enabled, you must create a personal access token\footnote{Creating
+an access token for command-line use to use instead of your GitHub password.,
+\href{https://help.github.com/articles/creating-an-access-token-for-command-line-use/}{https://help.github.com/articles/creating-an-access-token-for-command-line-use/}}
+ to use instead of your GitHub password.\footnote{Changing a remote's URL,
+ \href{https://help.github.com/articles/changing-a-remote-s-url/}{https://help.github.com/articles/changing-a-remote-s-url/}}
+\\
+\\
+To clone a Git repository over SSH, you can specify ssh:// URL like this:
+
+\begin{Verbatim}
+ $ git clone ssh://user@server/project.git
+\end{Verbatim}
+
+\noindent Or you can use the shorter scp-like syntax for the SSH
+protocol:
+
+\begin{Verbatim}
+ $ git clone user@server:project.git
+\end{Verbatim}
+
+\noindent You can also not specify a user, and Git assumes the
+user you’re currently logged in as.
+
+
+%% ======================== The Pros =============================
+%% ======================== The Pros =============================
+\subsubsection{The Pros}
+The pros of using SSH are many.  First, SSH is relatively easy
+to set up – SSH daemons are commonplace, many network admins have
+experience with them, and many OS distributions are set up with
+them or have tools to manage them.  Next, access over SSH is
+secure – all data transfer is encrypted and authenticated.  Last,
+like the HTTP/S, Git and Local protocols, SSH is efficient, making
+the data as compact as possible before transferring it.
+
+
+%% ======================== The Cons =============================
+%% ======================== The Cons =============================
+\subsubsection{The Cons}
+The negative aspect of SSH is that you can’t serve anonymous
+access of your repository over it.  People must have access to
+your machine over SSH to access it, even in a read-only capacity,
+which doesn’t make SSH access conducive to open source projects.
+If you’re using it only within your corporate network, SSH may be
+the only protocol you need to deal with.  If you want to allow
+anonymous read-only access to your projects and also want to use
+SSH, you’ll have to set up SSH for you to push over but something
+else for others to fetch over.\footnote{Ibid.}
