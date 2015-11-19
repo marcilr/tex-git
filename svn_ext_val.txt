@@ -10,7 +10,6 @@
 #
 # abbreviations/         Abbreviations
 # appendix/              Appendix
-# branching-tagging/     Branching & Tagging
 # cloud/                 Cloud Repository
 # repo/                  Google's repo
 # introduction/          Introduction
@@ -18,7 +17,6 @@
 #
 ../../tex/abbreviations/abbreviations           ./abbreviations
 ../../tex/appendix/appendix                     ./appendix
-../../tex/branching-tagging/branching-tagging   ./branching-tagging
 ../../tex/cloud/cloud                           ./cloud
 ../../tex/introduction/introduction             ./introduction
 ../../tex/repo/repo                             ./repo
