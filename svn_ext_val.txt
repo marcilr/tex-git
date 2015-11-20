@@ -1,0 +1,13 @@
+#
+# svn_ext_val.txt
+# Created Fri Nov 20 09:48:47 AKST 2015
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+
+
+#
+# List of repo hierarchical directories to checkout under repo/
+#
+# configuration/   Configuration
+#
+../../repo/configuration/configuration   ./configuration
