@@ -9,7 +9,5 @@
 # List of repo hierarchical directories to checkout under remotes/
 #
 # commands/   Remote Commands
-# ssh/        Secure Shell Protocol
 #
 ../../remotes/commands/commands   ./commands
-../../remotes/ssh/ssh             ./ssh
