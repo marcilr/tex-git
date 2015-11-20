@@ -10,7 +10,6 @@
 #
 # abbreviations/         Abbreviations
 # appendix/              Appendix
-# cloud/                 Cloud Repository
 # remotes/               Remote Repositories
 # repo/                  Google's repo
 # introduction/          Introduction
@@ -18,7 +17,6 @@
 #
 ../../tex/abbreviations/abbreviations           ./abbreviations
 ../../tex/appendix/appendix                     ./appendix
-../../tex/cloud/cloud                           ./cloud
 ../../tex/introduction/introduction             ./introduction
 ../../tex/remotes/remotes                       ./remotes
 ../../tex/repo/repo                             ./repo
