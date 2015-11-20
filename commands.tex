@@ -1,0 +1,76 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% commands.tex
+%% Created Fri Nov 20 11:16:34 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Google Repo Commands
+%%
+
+
+%% ======================== Commands =============================
+%% ======================== Commands =============================
+\newpage
+\subsection{Commands}
+Repo usage takes the following form:\footnote{Repo command reference\\
+\href{https://source.android.com/source/using-repo.html\#help}{https://source.android.com/source/using-repo.html\#help}}
+\\
+\indent \cmd{repo <COMMAND> <OPTIONS>}
+\\
+\\
+Optional elements are shown in brackets [ ].  For example, many commands take
+a project list as an argument.  You can specify project-list as a list of
+names or a list of paths to local source directories for the projects:
+
+\indent \cmd{repo sync [<PROJECT0> <PROJECT1> <PROJECTN>]}\\
+\indent \cmd{repo sync [</PATH/TO/PROJECT0> ... </PATH/TO/PROJECTN>]}
+\\
+
+\noindent Once Repo is installed, you can find the latest documentation
+starting with a summary of all commands by running:
+\\
+\indent \cmd{repo help}
+\\
+\\
+\noindent You can get information about any command by running this within a Repo tree:
+\\
+\indent \cmd{repo help <COMMAND>}
+\\
+\\
+NOTE: For \cmd{repo} commands without syntax here see the 
+Repo command reference.\footnote{Ibid.}
+
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|p{.25\textwidth}|p{.47\textwidth}|}\hline
+Command&Description\\
+\hline
+abandon&Permanently abandon a development branch\\
+branch&View current topic branches\\
+branches&View current topic branches\\
+checkout&Checkout a branch for development\\
+cherry-pick&Cherry-pick a change\\
+diff&Show changes between commit and working tree\\
+diffmanifests&Manifest diff utility\\
+download&Download and checkout a change\\
+grep&Print lines matching a pattern\\
+forall&Executes the given shell command in each project.\footnote{Repo command reference --
+\href{https://source.android.com/source/using-repo.html\#forall}{https://source.android.com/source/using-repo.html\#forall}}\\
+help&Display detailed help on a command\\
+info&Get info on the manifest branch, current branch or unmerged branches\\
+init&Install repo in the current working directory\\
+list&List projects and their associated directories\\
+overview&Display overview of unmerged project branches\\
+prune&Prune (delete) already merged topics\\
+rebase&Rebase local branches on upstream branch\\
+start& Start a new branch for development\\
+status&Show the working tree status\\
+sync&Update working tree to the latest revision\\
+upload&Upload changes for code review\\
+\hline
+\end{tabular}
+\caption {Repo Commands}
+\label{table:commands}
+\end{center}
+\end{table}
