@@ -31,76 +31,9 @@ Need to rewrite with original verbage.}
 
 %% ================== .repo/ subdirectory ===========================
 %% ================== .repo/ subdirectory ===========================
-\subsection{\cmd{.repo/} subdirectory}
-The \cmd{.repo/} subdirectory, located in the repository base,
-holds repo configuration.  The configuration includes a manifest
-with information about all the projects and where their associated git
-repositories are located.
-\\
-\\
-Files within the \cmd{.repo/} subdirectory includes:
-\begin{verbatim}
-  manifests/
-  manifests.git
-  manifest.xml -> manifests/default.xml
-  project-objects
-  projects/
-  repo/
-\end{verbatim}
- 
-\noindent To create the \cmd{.repo/} subdirectory:
-
-\begin{Verbatim}
- $ cd <my_repo>
- $ mkdir .repo/
- $ 
-\end{Verbatim}
-
-%% ======================== Manifest =============================
-%% ======================== Manifest =============================
-\subsection{Manifest}
-The repo keeps a manifest, ``within the hidden directory named `.repo','' 
-in ``a git project named `\cmd{manifests}' which
-usually contains a file named `\cmd{default.xml}'.  This file
-contains information about all the projects and where their associated
-git repositories are located.  This file is also versioned thus when
-you use the `\cmd{repo init -b XYZ}' command it will be reverted and you
-can back to older branches that may have added/removed git projects
-compared to the head.''\footnote{How does the Android repo manifest repository work?\\
-\href{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}
-{http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work}}
-\\
-\\
-The \cmd{default.xml} file is symlinked to \cmd{.repo/manifest.xml} and
-is created when the repo was initialized using:
-\\
-\\
-\cmd{repo init -u $<$manifest path$>$}
+%%\subsection{\cmd{.repo/} subdirectory}
 
 
-%% ======================== Examples =============================
-%% ======================== Examples =============================
-\subsubsection{Examples}
-Following is a manifest, in \cmd{.repo/manifests/default.xml} file, showing use
-of GitHub with username, ssh:// URL syntax, and 3 project repos
-with different usernames:\footnote{Keiji Ariyama, \href{https://github.com/keiji/repo-sample/blob/master/default.xml}{https://github.com/keiji/repo-sample/blob/master/default.xml}}
-
-\begin{Verbatim}
- <?xml version="1.0" encoding="UTF-8"?>
- <manifest>
-   <remote name="origin" fetch="ssh://git@github.com/" />
-   <default revision="master" remote="origin" />
-
-   <project path="lib/plist-lib"
-            name="keiji/AndroidPListLib.git" remote="origin" />
-
-   <project path="lib/json-pull-parser"
-            name="vvakame/JsonPullParser.git" remote="origin" />
-
-   <project path="apps/twicca_megane_plugin"
-            name="zaki50/TwiccaMeganePlugin.git" remote="origin" />
- </manifest>
-\end{Verbatim}
 
 
 %% ======================== Commands =============================

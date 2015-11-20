@@ -8,6 +8,8 @@
 #
 # List of repo hierarchical directories to checkout under repo/
 #
+# commands/        Commands
 # configuration/   Configuration
 #
+../../repo/commands/commands             ./commands
 ../../repo/configuration/configuration   ./configuration
