@@ -35,12 +35,28 @@ usually abbreviate such remote-tracking branch names to \cmd{origin/foo}.\footno
 %% ========================== Syntax =============================
 \vspace{20pt}
 \noindent\begin{bf}Syntax\end{bf}
+\\
+\\
+\noindent Clone the required package by executing the following
+command:\footnote{Cloning Tizen Source,\\
+\href{https://source.tizen.org/documentation/developer-guide/getting-started-guide/cloning-tizen-source}{https://source.tizen.org/documentation/developer-guide/getting-started-guide/cloning-tizen-source}}
+
+\begin{Verbatim}
+ $ git clone [-b <Branch>] ssh://<Username>@review.tizen.org:\
+ 29418/<Gerrit_Project> [<Local_Project>]
+\end{Verbatim}
+
+or
+
+\begin{Verbatim}
+ $ git clone ssh://<Username>@review.tizen.org:29418/pkgs/a/avsystem
+\end{Verbatim}
 
 %% ========================= Examples ============================
 %% ========================= Examples ============================
 \vspace{20pt}
 \noindent\begin{bf}Examples\end{bf}
-\vspace{10pt}
+\\
 \\
 To clone repository named \cmd{git} from GitHub to local \cmd{covellite} workstation:
 \begin{Verbatim}
