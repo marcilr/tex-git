@@ -8,6 +8,8 @@
 #
 # List of repo hierarchical directories to checkout under remotes/
 #
+# cloud/      Cloud Repository
 # commands/   Remote Commands
 #
+../../remotes/cloud/cloud         ./cloud
 ../../remotes/commands/commands   ./commands
