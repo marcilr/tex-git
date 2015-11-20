@@ -1,0 +1,64 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% init.tex
+%% Created Fri Nov 20 11:16:34 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Google repo init
+%%
+
+%% ========================== init ===============================
+%% ========================== init ===============================
+\clearpage
+\subsubsection{init}
+\cmd{\$ repo init -u <URL> [<OPTIONS>]}
+\\
+Installs Repo in the current directory. This creates a \cmd{.repo/}
+directory that contains Git repositories for the Repo source code
+and the standard Android manifest files.  The \cmd{.repo/}
+directory also contains \cmd{manifest.xml}, which is a symlink to the
+selected manifest in the \cmd{.repo/manifests/} directory.\footnote{Repo command reference --
+\href{https://source.android.com/source/using-repo.html\#forall}{https://source.android.com/source/using-repo.html}}\\
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|p{.15\textwidth}|p{.75\textwidth}|}\hline
+\centering Command&\centering Description\tabularnewline
+\hline
+\centering -u&Specify a URL from which to retrieve a manifest repository.
+The common manifest can be found at:
+\cmd{https://android.googlesource.com/platform/manifest}\\
+\centering -m&Select a manifest file within the repository. If no manifest
+ name is selected, the default is default.xml.\\
+\centering -b&Specify a revision, i.e., a particular manifest-branch.\\
+\hline
+\end{tabular}
+\caption {init Options}
+\label{table:init_options}
+\end{center}
+\end{table}
+
+%% ======================== Examples =============================
+%% ======================== Examples =============================
+\subsubsection{Examples}
+This will create a new place to hold your local copy of the source
+tree.   ``url'' should point to a Manifest repository that
+describes the whole sources.  It is a special project with a file
+(default.xml) that lists all the projects that Android is made of.
+In the Manifest file, each projects has attributes about: where to
+place it in the tree, where to download it from (git server),
+revision that will be used (usually a branch name, tag or commit
+sha-id).\footnote{Repo: Tips \& Tricks,\\
+\href{http://xda-university.com/as-a-developer/repo-tips-tricks}{http://xda-university.com/as-a-developer/repo-tips-tricks}}
+\\
+\\
+\indent\cmd{repo init -u <url> -b <branch>}
+\\
+\\
+\noindent Note: For all remaining Repo commands, the current working
+directory must either be the parent directory of \cmd{.repo/}
+or a subdirectory of the parent directory.\footnote{Repo command reference --
+\href{https://source.android.com/source/using-repo.html\#forall}{https://source.android.com/source/using-repo.html}}\\
+\\
+\\
+\noindent \FIXME{Need example of GitHub checkout}
