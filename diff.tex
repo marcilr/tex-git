@@ -1,0 +1,33 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% diff.tex
+%% Created Fri Nov 20 09:27:47 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Diff
+%%
+
+%% ============================ Diff ==============================
+%% ============================ Diff ==============================
+\subsubsection{Diff}
+Show changes between commits, commit and working tree, etc.
+\\
+\\
+\cmd{git diff [file]} to see exactly what I modified.
+\\
+\\
+Show changes between the working tree and the index or a tree,
+changes between the index and a tree, changes between two trees,
+changes between two blob objects, or changes between two files on
+disk.\footnote{git-diff - Show changes between commits, commit and working tree, etc\\
+\href{https://git-scm.com/docs/git-diff}{https://git-scm.com/docs/git-diff}}
+\\
+\\
+\begin{bf}Synopsis\end{bf}
+\begin{verbatim}
+ git diff [options] [<commit>] [--] [<path>...]
+ git diff [options] --cached [<commit>] [--] [<path>...]
+ git diff [options] <commit> <commit> [--] [<path>...]
+ git diff [options] <blob> <blob>
+ git diff [options] [--no-index] [--] <path> <path>
+\end{verbatim}
