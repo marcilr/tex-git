@@ -76,4 +76,42 @@ or a subdirectory of the parent directory.\footnote{Repo command reference --
 \noindent \begin{bf}GitHub repo init\end{bf}
 \\
 \\
-\noindent\cmd{repo init -u https://github.com/marcilr/git.git -b <branch>}
+\begin{verbatim}
+ $ repo init -u https://github.com/marcilr/git.git -b <branch>
+ $ repo sync
+\end{verbatim}
+
+\begin{verbatim}
+covellite:~/tmp/foo$ repo init -u ssh://github.com/marcilr/.repo -m manifest.xml
+Get https://gerrit.googlesource.com/git-repo/clone.bundle
+Get https://gerrit.googlesource.com/git-repo
+remote: Counting objects: 7, done
+remote: Finding sources: 100% (182/182)
+remote: Total 182 (delta 59), reused 182 (delta 59)
+Receiving objects: 100% (182/182), 246.65 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (59/59), completed with 4 local objects.
+From https://gerrit.googlesource.com/git-repo
+   5d0c3a6..e1e0bd1  master     -> origin/master
+   163fdbf..745b4ad  stable     -> origin/stable
+ * [new tag]         v1.12.27   -> v1.12.27
+ * [new tag]         v1.12.28   -> v1.12.28
+ * [new tag]         v1.12.29   -> v1.12.29
+ * [new tag]         v1.12.30   -> v1.12.30
+ * [new tag]         v1.12.30.1 -> v1.12.30.1
+ * [new tag]         v1.12.31   -> v1.12.31
+ * [new tag]         v1.12.32   -> v1.12.32
+Get ssh://github.com/marcilr/.repo
+Permission denied (publickey).
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+fatal: cannot obtain manifest ssh://github.com/marcilr/.repo
+covellite:~/tmp/foo$
+\end{verbatim}
