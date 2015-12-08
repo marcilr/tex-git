@@ -22,6 +22,26 @@ tree using repo init syntax.
 repo init -u ssh://github.com/marcilr/.repo -m manifest.xml
 
 
+covellite:~/tmp/tmp2$ repo init -u ssh://github.com/marcilr/.repo -m manifest.xml
+Get https://gerrit.googlesource.com/git-repo/clone.bundle
+Get https://gerrit.googlesource.com/git-repo
+remote: Finding sources: 100% (10/10)
+remote: Total 10 (delta 1), reused 10 (delta 1)
+Unpacking objects: 100% (10/10), done.
+From https://gerrit.googlesource.com/git-repo
+   74cfd27..e9becc0  master     -> origin/master
+Get ssh://github.com/marcilr/.repo
+remote: Counting objects: 3, done.        
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3        
+From ssh://github.com/marcilr/.repo
+ * [new branch]      master     -> origin/master
+fatal: manifest 'manifest.xml' not available
+fatal: manifest manifest.xml not found
+covellite:~/tmp/tmp2$
+
+Much closer to working with ssh configured right.
+
+
 +++ Mon Dec  7 15:24:42 AKST 2015 - Merge git commit details from:
 2.3 Git Basics - Viewing the Commit History
 https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
