@@ -210,6 +210,24 @@ Much closer to working with ssh configured right.
 https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
 
 
++++ Tue Dec  8 09:37:48 AKST 2015 - Add removing subdirectory section:
+
+foo$ git commit -m "Removing .repo subdirectory." .repo
+[master 818f97a] Removing .repo subdirectory.
+ 2 files changed, 20 deletions(-)
+ delete mode 120000 .repo/manifest.xml
+ delete mode 100644 .repo/manifests/default.xml
+foo$
+
+foo$ git push
+Counting objects: 2, done.
+Writing objects: 100% (2/2), 212 bytes | 0 bytes/s, done.
+Total 2 (delta 0), reused 0 (delta 0)
+To git@github.com:marcilr/foo.git
+   6aa954a..818f97a  master -> master
+foo$ 
+
+
 Complete
 ========
 x Tue Dec  8 08:09:15 AKST 2015 - Clone repository with ssh and crypto keys:
