@@ -9,7 +9,29 @@ Repo use:
 2. repo sync
 
 Options:
+-u: specify a URL from which to retrieve a manifest repository.
+    The common manifest can be found at:
+      https://android.googlesource.com/platform/manifest
 
+    The manifest repo only has a default.xml manifest file
+    with list of git repostories and path mapping to checkout
+    to.
+
+    After running repo init and repo sync commands the default.xml
+    gets copied to .repo/manifests/default.xml and the
+    .repo/manifest.xml symlink to .repo/manifests/default.xml
+
+-m: select a manifest file within the repository. If no manifest
+    name is selected, the default is default.xml.
+
+-b: specify a revision, i.e., a particular manifest-branch.
+
+Note: For all remaining Repo commands, the current working
+      directory must either be the parent directory of .repo/
+      or a subdirectory of the parent directory.
+
+-- Repo command reference
+   source.android.com/source/using-repo.html
 
 
 +++ Tue Dec  8 10:01:35 AKST 2015 - Get copy of google's manifest directory
