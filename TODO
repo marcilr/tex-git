@@ -3,6 +3,12 @@ Created Mon Dec  7 15:24:42 AKST 2015
 Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
 
 
+
+Repo use:
+1. repo init -u "url"
+2. repo sync
+
+
 +++ Tue Dec  8 09:02:08 AKST 2015 - Use repo init -u to checkout GitHub
 repository.
 
@@ -276,6 +282,10 @@ $
 
 Links
 =====
+git-repo
+repo - The multiple repository tool
+https://code.google.com/p/git-repo/
+
 How does the Android repo manifest repository work?
 http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work
 
@@ -290,4 +300,3 @@ https://gerrit.googlesource.com/git-repo/+/master/docs/manifest-format.txt
 Using Google's repo command in your own projects
 by wroberts3
 http://www.instructables.com/id/Using-Googles-repo-command-in-your-own-projects/
-
