@@ -10,7 +10,7 @@ Repo use:
 
 Options:
 -u: specify a URL from which to retrieve a manifest repository.
-    The common manifest can be found at:
+    The common google manifest can be found at:
       https://android.googlesource.com/platform/manifest
 
     The manifest repo only has a default.xml manifest file
