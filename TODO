@@ -16,6 +16,14 @@ host github.com
 $ git clone git@github.com:marcilr/foo.git foo
 
 
+covellite:~/tmp/tmp2$ git clone git@github.com:marcilr/.repo.git .repo
+Cloning into '.repo'...
+remote: Counting objects: 3, done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3
+Receiving objects: 100% (3/3), done.
+Checking connectivity... done.
+covellite:~/tmp/tmp2$ 
+
 +++ Mon Dec  7 15:24:42 AKST 2015 - Need syntax to initialize a 
 tree using repo init syntax.
 
