@@ -246,7 +246,13 @@ $
 
 Links
 =====
+How does the Android repo manifest repository work?
+http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work
+
 Repo: Tips & Tricks
 xda university
 Some good tricks here
 http://xda-university.com/as-a-developer/repo-tips-tricks
+
+Repo manifest format
+https://gerrit.googlesource.com/git-repo/+/master/docs/manifest-format.txt
