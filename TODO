@@ -18,6 +18,52 @@ manifest.xml -> manifests/default.xml
 
 Does not have manifests/default.xml file.
 
+1. Create manifests/ subdirectory with default.xml file.
+.repo$ mkdir manifests
+
+Create .repo/manifests/default.xml (that has .repo/manifest.xml symlink)
+
+2. Commit default.xml manifest
+.repo$ git commit -m "default.xml manifest with .repo/manifest.xml symlink" \
+manifests/default.xml
+[master 8a62fd5] default.xml manifest with .repo/manifest.xml symlink
+ 1 file changed, 19 insertions(+)
+ create mode 100644 manifests/default.xml
+.repo$
+
+3. Push to GitHub
+.repo$ git push                                    Counting objects: 4, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (4/4), 624 bytes | 0 bytes/s, done.
+Total 4 (delta 0), reused 0 (delta 0)
+To git@github.com:marcilr/.repo.git
+   14b7d35..8a62fd5  master -> master
+.repo$
+
+4. Check status
+.repo$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+nothing to commit, working directory clean
+.repo$
+
+5. Create new tmp directory and verify updated .repo:
+
+$ mkdir tmp
+$ cd tmp
+tmp$ git clone git@github.com:marcilr/.repo.git .repo  Cloning into '.repo'...
+remote: Counting objects: 7, done.
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 7
+Receiving objects: 100% (7/7), done.
+Checking connectivity... done.
+tmp$ 
+
+tmp$ ls .repo/manifests/default.xml 
+.repo/manifests/default.xml
+tmp$
+
+The GitHub .repo repository is fixed.
 
 
 +++ Mon Dec  7 15:24:42 AKST 2015 - Checkout GitHb repo using 
