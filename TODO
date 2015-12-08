@@ -2,6 +2,7 @@ TODO
 Created Mon Dec  7 15:24:42 AKST 2015
 Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
 
+
 +++ Mon Dec  7 15:24:42 AKST 2015 - 
 
 .ssh/config
@@ -23,6 +24,7 @@ remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3
 Receiving objects: 100% (3/3), done.
 Checking connectivity... done.
 covellite:~/tmp/tmp2$ 
+
 
 +++ Mon Dec  7 15:24:42 AKST 2015 - Need syntax to initialize a 
 tree using repo init syntax.
@@ -57,3 +59,35 @@ Much closer to working with ssh configured right.
 +++ Mon Dec  7 15:24:42 AKST 2015 - Merge git commit details from:
 2.3 Git Basics - Viewing the Commit History
 https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
+
+
+Complete
+========
+x Tue Dec  8 08:09:15 AKST 2015 - Clone repository with ssh and crypto keys:
+
+covellite:~/tmp$ git clone git@github.com:marcilr/foo.git foo
+Cloning into 'foo'...
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+marcilr@covellite:~/tmp
+$
+
+On GitHub public key configured under:
+  Settings > SSH Keys
+
+rsa4096_github_nopassphrase.pub
+  On GitHub public key configured under:
+    Settings > SSH Keys
+
+.ssh/
+rsa4096_github_nopassphrase
+rsa4096_github_nopassphrase.pub
+
+.ssh/config:
+host github.com
+    Hostname github.com
+    User git
+    IdentityFile ~/.ssh/rsa4096_github_nopassphrase
+    IdentitiesOnly yes
+    ServerAliveInterval 120
+
