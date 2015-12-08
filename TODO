@@ -382,6 +382,7 @@ repo - The multiple repository tool
 https://code.google.com/p/git-repo/
 
 How does the Android repo manifest repository work?
+Has good details here <=== Should mirror.
 http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work
 
 Is there any way to clone a git repository's sub-directory only?
