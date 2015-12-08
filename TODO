@@ -227,6 +227,18 @@ To git@github.com:marcilr/foo.git
    6aa954a..818f97a  master -> master
 foo$ 
 
+Remove directory from git but NOT local
+---------------------------------------
+As mentioned in the comments, what you usually want to do is remove
+this directory from git but not delete it entirely from the
+filesystem (local)
+In that case use:
+
+git rm -r --cached myFolder
+
+How to remove a directory in my GitHub repository?
+http://stackoverflow.com/questions/6313126/how-to-remove-a-directory-in-my-github-repository
+
 
 Complete
 ========
