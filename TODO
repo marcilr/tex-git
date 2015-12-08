@@ -2,8 +2,26 @@ TODO
 Created Mon Dec  7 15:24:42 AKST 2015
 Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
 
++++ Mon Dec  7 15:24:42 AKST 2015 - 
+
+.ssh/config
+-----------
+host github.com
+    Hostname github.com    
+    User git
+    IdentityFile ~/.ssh/rsa4096_github_nopassphrase
+    IdentitiesOnly yes
+    ServerAliveInterval 120
+
+$ git clone git@github.com:marcilr/foo.git foo
+
+
++++ Mon Dec  7 15:24:42 AKST 2015 - Need syntax to initialize a 
+tree using repo init syntax.
+
+repo init -u ssh://github.com/marcilr/.repo -m manifest.xml
+
 
 +++ Mon Dec  7 15:24:42 AKST 2015 - Merge git commit details from:
 2.3 Git Basics - Viewing the Commit History
 https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
-
