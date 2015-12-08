@@ -5,12 +5,15 @@ Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
 
 
 Repo use:
-1. repo init -u "url"
+1. repo init -u "url" -b "branch"
 2. repo sync
+
+Options:
+
 
 
 +++ Tue Dec  8 10:01:35 AKST 2015 - Get copy of google's manifest directory
-and adapt to my own.
+and create my own to manage GitHub hierarchical directory checkout.
 
 1. Clone google's common manifest for inspection:
 Get copy of google's common manifest (references on Repo command reference):
@@ -145,165 +148,6 @@ I've got the repo command working!
 
 Works:
 $ git clone git@github.com:marcilr/foo.git foo
-
-
-
-
-+++ Tue Dec  8 08:38:33 AKST 2015 - Use repo init -u to checkout GitHub
-.repo with the required:
-  ./repo/manifest.xml -> manifests/default.xml
-  ./repo/manifests/default.xml
-
-$ repo init -u ssh://github.com/marcilr/.repo
-Get https://gerrit.googlesource.com/git-repo/clone.bundle
-Get https://gerrit.googlesource.com/git-repo
-remote: Finding sources: 100% (10/10)
-remote: Total 10 (delta 1), reused 10 (delta 1)
-Unpacking objects: 100% (10/10), done.
-From https://gerrit.googlesource.com/git-repo
-   74cfd27..e9becc0  master     -> origin/master
-Get ssh://github.com/marcilr/.repo
-remote: Counting objects: 7, done.        
-remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 7        
-From ssh://github.com/marcilr/.repo
- * [new branch]      master     -> origin/master
-fatal: manifest 'default.xml' not available
-fatal: manifest default.xml not found
-marcilr@covellite:~/tmp/tmp3$ 
-
-Looks like default.xml is checked out under:
-  .repo/manifests/manifests/default.xml
-
-Likely using repo to checkout a .repo repository is problematic.
-
-
-+++ Tue Dec  8 08:26:54 AKST 2015 - Get GitHub .repo repository working:
- 
-$ git clone git@github.com:marcilr/.repo.git .repo
-Cloning into '.repo'...
-remote: Counting objects: 3, done.
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3
-Receiving objects: 100% (3/3), done.
-Checking connectivity... done.
-$
-
-Creates .repo directory.  However it ownly has:
-manifest.xml -> manifests/default.xml
-
-Does not have manifests/default.xml file.
-
-1. Create manifests/ subdirectory with default.xml file.
-.repo$ mkdir manifests
-
-Create .repo/manifests/default.xml (that has .repo/manifest.xml symlink)
-
-2. Commit default.xml manifest
-.repo$ git commit -m "default.xml manifest with .repo/manifest.xml symlink" \
-manifests/default.xml
-[master 8a62fd5] default.xml manifest with .repo/manifest.xml symlink
- 1 file changed, 19 insertions(+)
- create mode 100644 manifests/default.xml
-.repo$
-
-3. Push to GitHub
-.repo$ git push                                    Counting objects: 4, done.
-Delta compression using up to 4 threads.
-Compressing objects: 100% (3/3), done.
-Writing objects: 100% (4/4), 624 bytes | 0 bytes/s, done.
-Total 4 (delta 0), reused 0 (delta 0)
-To git@github.com:marcilr/.repo.git
-   14b7d35..8a62fd5  master -> master
-.repo$
-
-4. Check status
-.repo$ git status
-On branch master
-Your branch is up-to-date with 'origin/master'.
-nothing to commit, working directory clean
-.repo$
-
-5. Create new tmp directory and verify updated .repo:
-
-$ mkdir tmp
-$ cd tmp
-tmp$ git clone git@github.com:marcilr/.repo.git .repo  Cloning into '.repo'...
-remote: Counting objects: 7, done.
-remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 7
-Receiving objects: 100% (7/7), done.
-Checking connectivity... done.
-tmp$ 
-
-tmp$ ls .repo/manifests/default.xml 
-.repo/manifests/default.xml
-tmp$
-
-The GitHub .repo repository is fixed.
-
-
-+++ Mon Dec  7 15:24:42 AKST 2015 - Checkout GitHb repo using 
-repo init syntax and manifest.
-
-
-$ repo init -u ssh://github.com/marcilr/.repo
-Get https://gerrit.googlesource.com/git-repo/clone.bundle
-Get https://gerrit.googlesource.com/git-repo
-remote: Finding sources: 100% (10/10)
-remote: Total 10 (delta 1), reused 10 (delta 1)
-Unpacking objects: 100% (10/10), done.
-From https://gerrit.googlesource.com/git-repo
-   74cfd27..e9becc0  master     -> origin/master
-Get ssh://github.com/marcilr/.repo
-remote: Counting objects: 3, done.        
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3        
-From ssh://github.com/marcilr/.repo
- * [new branch]      master     -> origin/master
-fatal: manifest 'default.xml' not available
-fatal: manifest default.xml not found
-$
-
-
-$ repo init -u ssh://github.com/marcilr/foo
-Get https://gerrit.googlesource.com/git-repo/clone.bundle
-Get https://gerrit.googlesource.com/git-repo
-remote: Finding sources: 100% (10/10)
-remote: Total 10 (delta 1), reused 10 (delta 1)
-Unpacking objects: 100% (10/10), done.
-From https://gerrit.googlesource.com/git-repo
-   74cfd27..e9becc0  master     -> origin/master
-Get ssh://github.com/marcilr/foo
-fatal: Couldn't find remote ref refs/heads/master
-fatal: Couldn't find remote ref refs/heads/master
-fatal: cannot obtain manifest ssh://github.com/marcilr/foo
-$
-
-The above did create a .repo subdirectory.
-
-
-repo init -u ssh://github.com/marcilr/.repo -m .repo/manifests/default.xml
-...
-From ssh://github.com/marcilr/.repo
- * [new branch]      master     -> origin/master
-fatal: manifest '.repo/manifests/default.xml' not available
-fatal: manifest .repo/manifests/default.xml not found
-
-covellite:~/tmp/tmp2$ repo init -u ssh://github.com/marcilr/.repo -m manifest.xml
-Get https://gerrit.googlesource.com/git-repo/clone.bundle
-Get https://gerrit.googlesource.com/git-repo
-remote: Finding sources: 100% (10/10)
-remote: Total 10 (delta 1), reused 10 (delta 1)
-Unpacking objects: 100% (10/10), done.
-From https://gerrit.googlesource.com/git-repo
-   74cfd27..e9becc0  master     -> origin/master
-Get ssh://github.com/marcilr/.repo
-remote: Counting objects: 3, done.        
-remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 3        
-From ssh://github.com/marcilr/.repo
- * [new branch]      master     -> origin/master
-fatal: manifest 'manifest.xml' not available
-fatal: manifest manifest.xml not found
-covellite:~/tmp/tmp2$
-
-Much closer to working with ssh configured right.
 
 
 +++ Mon Dec  7 15:24:42 AKST 2015 - Merge git commit details from:
