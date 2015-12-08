@@ -9,6 +9,67 @@ Repo use:
 2. repo sync
 
 
++++ Tue Dec  8 10:01:35 AKST 2015 - Get copy of google's manifest directory
+and adapt to my own.
+
+1. Clone google's common manifest for inspection:
+Get copy of google's common manifest (references on Repo command reference):
+https://android.googlesource.com/platform/manifest
+tmp$ git clone https://android.googlesource.com/platform/manifest
+Cloning into 'manifest'...
+remote: Counting objects: 252, done
+remote: Finding sources: 100% (252/252)
+remote: Total 3162 (delta 985), reused 3162 (delta 985)
+Receiving objects: 100% (3162/3162), 1.73 MiB | 2.73 MiB/s, done.
+Resolving deltas: 100% (986/986), done.
+Checking connectivity... done.
+covellite:~/tmp$
+
+2. Create my own manifest git repository:
+$ mkdir manifest
+$ cd manifest
+$ git init
+Initialized empty Git repository in /home/marcilr/tmp/tmp2/manifest/.git/
+$ github-create
+Repo name (hit enter to use 'manifest')?
+<enter>
+Creating Github repository 'manifest' ... done.
+Pushing local code to remote ... done.
+$
+
+3. Check manifiest repo to verify creation:
+$ cd ..
+$ rm -rf manifest
+$ git clone git@github.com:marcilr/manifest.git manifest
+Cloning into 'manifest'...
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+$
+
+Looks good.
+
+4. Create and add default manifest:
+$ cd manifest
+
+Create default.xml
+
+$ git add default.xml
+$ git commit -m "Default manifest" default.xml
+ 1 file changed, 19 insertions(+)
+ create mode 100644 default.xml
+$
+
+Push default manifest to GitHub:$ git push
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 495 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:marcilr/manifest.git
+ * [new branch]      master -> master
+$
+
+
 +++ Tue Dec  8 09:02:08 AKST 2015 - Use repo init -u to checkout GitHub
 repository.
 
