@@ -25,6 +25,9 @@ Resolving deltas: 100% (986/986), done.
 Checking connectivity... done.
 covellite:~/tmp$
 
+Looks like manifest repo with only default.xml and standard .git/
+subdirectory.
+
 2. Create my own manifest git repository:
 $ mkdir manifest
 $ cd manifest
