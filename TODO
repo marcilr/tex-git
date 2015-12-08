@@ -3,6 +3,34 @@ Created Mon Dec  7 15:24:42 AKST 2015
 Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
 
 
++++ Tue Dec  8 08:38:33 AKST 2015 - Use repo init -u to checkout GitHub
+.repo with the required:
+  ./repo/manifest.xml -> manifests/default.xml
+  ./repo/manifests/default.xml
+
+$ repo init -u ssh://github.com/marcilr/.repo
+Get https://gerrit.googlesource.com/git-repo/clone.bundle
+Get https://gerrit.googlesource.com/git-repo
+remote: Finding sources: 100% (10/10)
+remote: Total 10 (delta 1), reused 10 (delta 1)
+Unpacking objects: 100% (10/10), done.
+From https://gerrit.googlesource.com/git-repo
+   74cfd27..e9becc0  master     -> origin/master
+Get ssh://github.com/marcilr/.repo
+remote: Counting objects: 7, done.        
+remote: Total 7 (delta 0), reused 0 (delta 0), pack-reused 7        
+From ssh://github.com/marcilr/.repo
+ * [new branch]      master     -> origin/master
+fatal: manifest 'default.xml' not available
+fatal: manifest default.xml not found
+marcilr@covellite:~/tmp/tmp3$ 
+
+Looks like default.xml is checked out under:
+  .repo/manifests/manifests/default.xml
+
+Likely using repo to checkout a .repo repository is problematic.
+
+
 +++ Tue Dec  8 08:26:54 AKST 2015 - Get GitHub .repo repository working:
  
 $ git clone git@github.com:marcilr/.repo.git .repo
