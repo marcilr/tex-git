@@ -34,6 +34,10 @@ Note: For all remaining Repo commands, the current working
    source.android.com/source/using-repo.html
 
 
++++ Tue Dec 15 15:36:59 AKST 2015 - Some good syntax here.
+10 things I hate about Git
+http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/
+
 +++ Tue Dec  8 10:01:35 AKST 2015 - Get copy of google's manifest directory
 and create my own to manage GitHub hierarchical directory checkout.
 
