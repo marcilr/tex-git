@@ -38,6 +38,9 @@ Note: For all remaining Repo commands, the current working
 10 things I hate about Git
 http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/
 
+Commit Often, Perfect Later, Publish Once: Git Best Practices
+https://sethrobertson.github.io/GitBestPractices/
+
 +++ Tue Dec  8 10:01:35 AKST 2015 - Get copy of google's manifest directory
 and create my own to manage GitHub hierarchical directory checkout.
 
