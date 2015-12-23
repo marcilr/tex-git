@@ -1,0 +1,34 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% commit.tex
+%% Created Wed Dec 23 11:20:19 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Commit - Record changes to the repository
+%%
+
+%% ============================ Commit ==============================
+%% ============================ Commit ==============================
+\subsubsection{Commit}
+Record changes to the repository
+\\
+\\
+Stores the current contents of the index in a new commit along with
+a log message from the user describing the changes.\footnote{git-commit - Record changes to the repository,\\
+\href{https://git-scm.com/docs/git-commit}{https://git-scm.com/docs/git-commit}}
+\\
+\\
+
+%% ========================= Examples ============================
+%% ========================= Examples ============================
+\noindent \begin{bf}Examples\end{bf}
+\\
+\\
+\noindent Commit \cmd{spectracom.txt} file with message
+\cmd{Added GCI Network Services OSS comments.}
+\begin{Verbatim}
+ $ git commit -m "Added GCI Network Services OSS comments." spectracom.txt
+ [master 5267495] Added GCI Network Services OSS comments.
+  1 file changed, 13 insertions(+)
+ $ 
+\end{Verbatim}
