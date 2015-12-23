@@ -34,6 +34,13 @@ Note: For all remaining Repo commands, the current working
    source.android.com/source/using-repo.html
 
 
++++ Wed Dec 23 13:36:08 AKST 2015 - Add configuration section.
+i.e. ~/.gitconfig, ~/.gitignore_global, configure default editor.
+https://help.github.com/articles/ignoring-files/
+
+Has editor configuration:
+http://stackoverflow.com/questions/60278/git-commit-opens-blank-text-file-for-what
+
 +++ Tue Dec 15 15:36:59 AKST 2015 - Some good syntax here.
 10 things I hate about Git
 http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/
