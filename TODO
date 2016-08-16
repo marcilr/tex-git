@@ -34,6 +34,9 @@ Note: For all remaining Repo commands, the current working
    source.android.com/source/using-repo.html
 
 
++++ Tue Aug 16 10:20:22 AKDT 2016 - Need to update revison control
+number displayed in title from subversion to git.
+
 +++ Wed Dec 23 13:36:08 AKST 2015 - Add configuration section.
 i.e. ~/.gitconfig, ~/.gitignore_global, configure default editor.
 https://help.github.com/articles/ignoring-files/
