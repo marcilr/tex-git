@@ -33,6 +33,13 @@ Note: For all remaining Repo commands, the current working
 -- Repo command reference
    source.android.com/source/using-repo.html
 
++++ Tue Aug 23 15:03:02 AKDT 2016 - git clone syntax.
+On htpc use:
+
+htpc:~$ git clone /data/git/home/marcilr/bin bin
+Cloning into 'bin'...
+done.
+htpc:~$ 
 
 +++ Tue Aug 23 15:03:02 AKDT 2016 - bare vs. non-bare repositories
 
