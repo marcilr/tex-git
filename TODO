@@ -34,6 +34,35 @@ Note: For all remaining Repo commands, the current working
    source.android.com/source/using-repo.html
 
 
++++ Tue Aug 23 15:03:02 AKDT 2016 - bare vs. non-bare repositories
+
++++ Tue Aug 23 15:03:02 AKDT 2016 - Add git repo details to docuement:
+git log and show on a bare repo
+Good details on HEAD file:
+o In non-bare repositories, HEAD normally indicates which branch is currently
+  checked out.
+o In bare repositories, HEAD indicates the repository's default branch, so
+  that in a clone of the repository git checkout origin is equivalent to git
+  checkout origin/master if master is the default branch (see git help
+  rev-parse for details).
+Visualization:
+  git log --graph --oneline --date-order --decorate --color --all
+http://stackoverflow.com/questions/6214711/git-log-and-show-on-a-bare-repo
+
+How to convert a normal Git repository to a bare one?
+http://stackoverflow.com/questions/2199897/how-to-convert-a-normal-git-repository-to-a-bare-one
+
+how to give a git repo a name?
+Has:
+  mkdir myrepo.git
+  cd myrepo.git
+  git init --bare
+http://stackoverflow.com/questions/5055791/how-to-give-a-git-repo-a-name
+
+Start a new git repository
+Good "Connect it to github" section
+http://kbroman.org/github_tutorial/pages/init.html
+
 +++ Tue Aug 16 10:20:22 AKDT 2016 - Need to update revison control
 number displayed in title from subversion to git.
 
