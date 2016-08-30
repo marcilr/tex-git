@@ -20,6 +20,9 @@ https://git-scm.com/
 Git Basics - Getting a Git Repository
 https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 
+Git Branching - Basic Branching and Merging
+https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+
 Git branching and tagging best practices
 http://programmers.stackexchange.com/questions/165725/git-branching-and-tagging-best-practices
 
