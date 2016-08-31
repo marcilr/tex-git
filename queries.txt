@@ -1,0 +1,15 @@
+queries.txt
+Created Wed Aug 31 10:34:19 AKDT 2016
+Copyright (C) 2016 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Queries filexfer.jobs 
+
+
+SELECT * FROM `jobs`
+WHERE host like '%nms-jobserver%';
+
+SELECT * FROM `jobs`
+WHERE neName='GA26';
+
+
