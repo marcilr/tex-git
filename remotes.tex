@@ -1,0 +1,43 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% remotes.tex
+%% Created Wed Nov 18 15:00:41 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Remotes
+%%
+
+%% ========================= Remotes =============================
+%% ========================= Remotes =============================
+\newpage
+\section{Remotes}
+``To be able to collaborate on any Git project, you need to know
+how to manage your remote repositories.  Remote repositories are
+versions of your project that are hosted on the Internet or
+network somewhere.  You can have several of them, each of which
+generally is either read-only or read/write for you.
+Collaborating with others involves managing these remote
+repositories and pushing and pulling data to and from them when
+you need to share work.  Managing remote repositories includes
+knowing how to add remote repositories, remove remotes that are no
+longer valid, manage various remote branches and define them as
+being tracked or not, and more. In this section, we'll cover some
+of these remote-management skills.''\footnote{Git Basics - Working
+with Remotes,\\
+\href{http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes}{http://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes}}
+\\
+\\
+A remote URL is Git's fancy way of saying ``the place where your
+code is stored.'' That URL could be your repository on GitHub, or
+another user's fork, or even on a completely different server.\footnote{About remote repositories,
+\href{https://help.github.com/articles/about-remote-repositories/}{https://help.github.com/articles/about-remote-repositories/}}
+\\
+\\
+Git associates a remote URL with a name, and your default 
+remote is usually called \cmd{origin}.\footnote{Ibid.}
+
+%% Cloud Repository (includes github)
+\input{remotes/cloud/cloud.tex}
+
+%% Remote Commands
+\input{remotes/commands/commands.tex}

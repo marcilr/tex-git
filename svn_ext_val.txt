@@ -1,0 +1,15 @@
+#
+# svn_ext_val.txt
+# Created Thu Nov 19 08:19:21 AKST 2015
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+
+
+#
+# List of repo hierarchical directories to checkout under remotes/
+#
+# cloud/      Cloud Repository
+# commands/   Remote Commands
+#
+../../remotes/cloud/cloud         ./cloud
+../../remotes/commands/commands   ./commands
