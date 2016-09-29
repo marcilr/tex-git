@@ -1,0 +1,311 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% template.tex
+%% Created Wed Jul 25 09:32:40 AKDT 2007
+%% by Raymond E. Marcil <marcilr@gmail.com>
+%% 
+%% Git is a free and open source distributed version control system designed
+%% to handle everything from small to very large projects with speed and
+%% efficiency.
+%%
+%% Git is easy to learn and has a tiny footprint with lightning fast
+%% performance. It outclasses SCM tools like Subversion, CVS, Perforce,
+%% and ClearCase with features like cheap local branching, convenient
+%% staging areas, and multiple workflows.
+%% https://git-scm.com/
+%%
+
+  %%
+%%%%%% Preamble.
+  %%
+
+%% Specify DVIPS driver used by things like hyperref
+\documentclass[12pt,letterpaper,dvips]{article}
+
+%% rcs is the package to display cvs revision info.
+%%\usepackage{rcs}
+\usepackage{fullpage}
+\usepackage{fancyvrb} 
+\usepackage{graphicx}
+\usepackage{figsize}
+\usepackage{calc}
+
+%%
+%% enumitem – Control layout of itemize, enumerate, description
+%% https://www.ctan.org/pkg/enumitem
+%%
+%% Allows for use of \bgein{itemize}[leftmargin=0pt] 
+%% to lists with 0 left margin.
+%%
+%% Itemize left margin
+%% http://tex.stackexchange.com/questions/170525/itemize-left-margin
+%% 
+\usepackage{enumitem}%     http://ctan.org/pkg/enumitem
+
+
+%% caption package for use in justifying table or figure captions
+\usepackage{caption}
+
+\usepackage{xspace}
+\usepackage{booktabs}
+\usepackage[first,bottomafter]{draftcopy}
+\usepackage[numbib]{tocbibind}
+
+\usepackage{amssymb}              %% AMS Symbols, used for \checkmark
+\usepackage{multicol}
+
+%%
+%% Extract SVN metadata for use elsewhere.
+%% This information has:
+%% o the filename
+%% o the revision number
+%% o the date and time of the last Subversion co command
+%% o name of the user who has done the action
+%%
+\usepackage{svninfo}
+\svnInfo $Id$
+
+%%
+%% Hyperref package for embedding URLs for clickable links in PDFs, 
+%% also specify PDF attributes here.
+%%
+%% The pdfborder={0 0 0} is what ellimated the blue box around the url
+%% displayed by \href{}{}.
+%%
+%% The command pdfborder={0 0 1} would display a box with thickness of 1 pt.
+%%
+%% Hypertext marks in LATEX: a manual for hyperref
+%% by Sebastian Rahtz and Heiko Oberdiek - November 2012
+%% http://ctan.org/pkg/hyperref 
+%% http://mirror.hmc.edu/ctan/macros/latex/contrib/hyperref/doc/manual.html
+%%
+\usepackage[
+colorlinks,
+linkcolor=blue,
+%%colorlinks=false,
+hyperindex=false,
+urlcolor=blue,
+pdfborder={0 0 0},
+pdfauthor={Raymond E. Marcil},
+pdftitle={Git, Revision Control},
+pdfcreator={ps2pdf},
+pdfsubject={git, revision control},
+pdfkeywords={git, revision control}
+]{hyperref}
+
+
+%%
+%% Extract RCS metadata for use elsewhere.
+%% Jason figured this out, very cool.
+%%
+%%\RCS $Revision: 1.53 $
+%%\RCS $Date: 2006/06/26 21:04:55 $
+
+
+  %%
+%%%%%% Customization.
+  %%
+
+% On letter paper with 10pt font the Verbatim environment has 65 columns.
+% With 12pt font the environment has 62 columns.  Exceeding this will exceed
+% the frame and will look ugly.  YHBW.  HAND.
+\RecustomVerbatimEnvironment{Verbatim}{Verbatim}{frame=single}
+
+\renewenvironment{description}
+                 {\list{}{\labelwidth 0pt \iteminden-\leftmargin
+                          \let\labelsep\hsize
+                          \let\makelabel\descriptionlabel}}
+                 {\endlist}
+\renewcommand*\descriptionlabel[1]{\hspace\labelsep\sffamily\bfseries #1}
+
+
+  %%
+%%%%%% Commands.
+  %%
+
+\newcommand{\FIXME}[1]{\textsf{[FIXME: #1]}}
+\newcommand{\cmd}[1]{\texttt{#1}}
+
+
+%% Squeeze space above/below captions
+\setlength{\abovecaptionskip}{4pt}   % 0.5cm as an example
+\setlength{\belowcaptionskip}{4pt}   % 0.5cm as an example
+
+
+%% Tex really adds a lot of whitespace to itemized 
+%% lists so define a new command itemize* with a 
+%% lot less whitespace.  Found this in the British
+%% Tex faq.
+\newenvironment{itemize*}%
+  {\begin{itemize}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parsep}{0pt}}%
+  {\end{itemize}}
+
+  
+%%
+%% Tex really adds a lot of whitespace to itemized 
+%% lists so define a new command itemize* with a 
+%% lot less whitespace.  Found this in the British
+%% Tex faq.
+%%
+%% Tue Jun 23 13:22:04 AKDT 2015
+%% =============================
+%% Added [leftmargin=0.0mm] to set the left margin=0
+%% This requires use of the enumitem package:
+%%   \usepackage{enumitem}%     http://ctan.org/pkg/enumitem
+%%
+%% Itemize left margin
+%% http://tex.stackexchange.com/questions/170525/itemize-left-margin
+%%
+\newenvironment{itemizenoleft*}%
+  {\begin{itemize}[leftmargin=15.0pt]%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parsep}{0pt}}%
+  {\end{itemize}}
+  
+
+%%
+%% Tex really adds a lot of whitespace to itemized 
+%% lists so define a new command enumerate* with a 
+%% lot less whitespace.  Created using itemize*
+%% pattern.  
+%%
+  \newenvironment{enumerate*}%
+  {\begin{enumerate}%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parsep}{0pt}}%
+  {\end{enumerate}}
+
+
+%%
+%% Tex really adds a lot of whitespace to itemized 
+%% lists so define a new command enumerate* with a 
+%% lot less whitespace.  Created using itemize*
+%% pattern.  
+%%
+%% Tue Jun 23 13:22:04 AKDT 2015
+%% =============================
+%% Added [leftmargin=0.0mm] to set the left margin=0
+%% This requires use of the enumitem package:
+%%   \usepackage{enumitem}%     http://ctan.org/pkg/enumitem
+%%
+%% Itemize left margin
+%% http://tex.stackexchange.com/questions/170525/itemize-left-margin
+%%
+\newenvironment{enumeratenoleft*}%
+  {\begin{enumerate}[leftmargin=0.0mm]%
+    \setlength{\itemsep}{0pt}%
+    \setlength{\parsep}{0pt}}%
+  {\end{enumerate}}
+
+
+%% Squeeze space
+\renewcommand\floatpagefraction{.9}
+\renewcommand\topfraction{.9}
+\renewcommand\bottomfraction{.9}
+\renewcommand\textfraction{.1}   
+\setcounter{totalnumber}{50}
+\setcounter{topnumber}{50}
+\setcounter{bottomnumber}{50}
+
+
+  %%
+%%%%%% Document.
+  %%
+
+\title{Git\\
+       Revision Control}
+
+\author{Raymond E. Marcil\\
+        \texttt{$<$marcilr@gmail.com$>$}
+}
+
+% Display subversion revision and date under author on 1st page.
+\date{Revision \svnInfoRevision
+      \hspace{2pt}
+      (\svnInfoLongDate)}
+
+
+% Set date to RCS revision date
+%%\date{Revision \RCSRevision
+%%      \hspace{2pt}
+%%      (\RCSDate)}
+
+
+%%
+%% Display SVN (subversion) version data at top right of 1st page,
+%% This may be preferable to underneath the author.
+%%
+%%\rhead{Revision \svnInfoRevision\\
+%%\svnInfoLongDate}
+
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+  \noindent Git is a free and open source distributed version control
+  system designed to handle everything from small to very large projects
+  with speed and efficiency.\\
+  \\
+  Git is easy to learn and has a tiny footprint with lightning fast
+  performance. It outclasses SCM tools like Subversion, CVS, Perforce,
+  and ClearCase with features like cheap local branching, convenient
+  staging areas, and multiple workflows.\footnote{Git - \href{https://git-scm.com/}{https://git-scm.com/}}
+\end{abstract}
+
+\vspace{2.0in}
+
+%% Draw DNR logo and address at bottom of page
+%%\begin{figure}[h]
+%%        \hspace{0.32in}
+%%        \SetFigLayout{1}{1}
+%%        \begin{minipage}[b]{0.16\figwidth}
+%%                \includegraphics[width=\textwidth]{dnr_bwlogo.eps}
+%%        \end{minipage}
+%%        \hspace{5pt}
+%%        \begin{minipage}[b]{\figwidth}
+%%                \bf{Alaska Department of Natural Resources}\\
+%%                \small{\sf{Division of Support Services\\
+%%                Land Records Information Section\\
+%%                550 W. 7th Ave. Suite 706\\
+%%                Anchorage, Alaska 99501}}
+%%        \end{minipage}
+%%\end{figure}
+
+\newpage
+\tableofcontents
+
+\newpage
+\listoffigures
+\listoftables
+
+%% Abbreviations
+\input{abbreviations/abbreviations.tex}
+
+%% Introduction
+\input{introduction/introduction.tex}
+
+%% Repositories
+\input{repositories/repositories.tex}
+
+%% Remote Repositories
+\input{remotes/remotes.tex}
+
+%% Google's repo command
+\input{repo/repo.tex}
+
+%% Appendix
+\input{appendix/appendix.tex}
+
+
+
+\end{document}
+
+%% Local Variables:
+%% fill-column: 78
+%% mode: auto-fill
+%% compile-command: "make"
+%% End:

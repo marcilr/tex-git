@@ -1,0 +1,23 @@
+#
+# svn_ext_val.txt
+# Created Tue Nov 17 15:16:21 AKST 2015
+# by Raymond E. Marcil <marcilr@gmail.com>
+#
+
+
+#
+# List of repo hierarchical directories to checkout under tex/
+#
+# abbreviations/         Abbreviations
+# appendix/              Appendix
+# remotes/               Remote Repositories
+# repo/                  Google's repo
+# introduction/          Introduction
+# repositories/          Repositories
+#
+../../tex/abbreviations/abbreviations           ./abbreviations
+../../tex/appendix/appendix                     ./appendix
+../../tex/introduction/introduction             ./introduction
+../../tex/remotes/remotes                       ./remotes
+../../tex/repo/repo                             ./repo
+../../tex/repositories/repositories             ./repositories

@@ -1,0 +1,325 @@
+TODO
+Created Mon Dec  7 15:24:42 AKST 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+
+Repo use:
+1. repo init -u "url" -b "branch"
+2. repo sync
+
+Options:
+-u: specify a URL from which to retrieve a manifest repository.
+    The common google manifest can be found at:
+      https://android.googlesource.com/platform/manifest
+
+    The manifest repo only has a default.xml manifest file
+    with list of git repostories and path mapping to checkout
+    to.
+
+    After running repo init and repo sync commands the default.xml
+    gets copied to .repo/manifests/default.xml and the
+    .repo/manifest.xml symlink to .repo/manifests/default.xml
+
+-m: select a manifest file within the repository. If no manifest
+    name is selected, the default is default.xml.
+
+-b: specify a revision, i.e., a particular manifest-branch.
+
+Note: For all remaining Repo commands, the current working
+      directory must either be the parent directory of .repo/
+      or a subdirectory of the parent directory.
+
+-- Repo command reference
+   source.android.com/source/using-repo.html
+
++++ Tue Aug 23 15:03:02 AKDT 2016 - git clone syntax.
+On htpc use:
+
+htpc:~$ git clone /data/git/home/marcilr/bin bin
+Cloning into 'bin'...
+done.
+htpc:~$ 
+
++++ Tue Aug 23 15:03:02 AKDT 2016 - bare vs. non-bare repositories
+
++++ Tue Aug 23 15:03:02 AKDT 2016 - Add git repo details to docuement:
+git log and show on a bare repo
+Good details on HEAD file:
+o In non-bare repositories, HEAD normally indicates which branch is currently
+  checked out.
+o In bare repositories, HEAD indicates the repository's default branch, so
+  that in a clone of the repository git checkout origin is equivalent to git
+  checkout origin/master if master is the default branch (see git help
+  rev-parse for details).
+Visualization:
+  git log --graph --oneline --date-order --decorate --color --all
+http://stackoverflow.com/questions/6214711/git-log-and-show-on-a-bare-repo
+
+How to convert a normal Git repository to a bare one?
+http://stackoverflow.com/questions/2199897/how-to-convert-a-normal-git-repository-to-a-bare-one
+
+how to give a git repo a name?
+Has:
+  mkdir myrepo.git
+  cd myrepo.git
+  git init --bare
+http://stackoverflow.com/questions/5055791/how-to-give-a-git-repo-a-name
+
+Start a new git repository
+Good "Connect it to github" section
+http://kbroman.org/github_tutorial/pages/init.html
+
++++ Tue Aug 16 10:20:22 AKDT 2016 - Need to update revison control
+number displayed in title from subversion to git.
+
++++ Wed Dec 23 13:36:08 AKST 2015 - Add configuration section.
+i.e. ~/.gitconfig, ~/.gitignore_global, configure default editor.
+https://help.github.com/articles/ignoring-files/
+
+Has editor configuration:
+http://stackoverflow.com/questions/60278/git-commit-opens-blank-text-file-for-what
+
++++ Tue Dec 15 15:36:59 AKST 2015 - Some good syntax here.
+10 things I hate about Git
+http://stevebennett.me/2012/02/24/10-things-i-hate-about-git/
+
+Commit Often, Perfect Later, Publish Once: Git Best Practices
+https://sethrobertson.github.io/GitBestPractices/
+
++++ Tue Dec  8 10:01:35 AKST 2015 - Get copy of google's manifest directory
+and create my own to manage GitHub hierarchical directory checkout.
+
+1. Clone google's common manifest for inspection:
+Get copy of google's common manifest (references on Repo command reference):
+https://android.googlesource.com/platform/manifest
+tmp$ git clone https://android.googlesource.com/platform/manifest
+Cloning into 'manifest'...
+remote: Counting objects: 252, done
+remote: Finding sources: 100% (252/252)
+remote: Total 3162 (delta 985), reused 3162 (delta 985)
+Receiving objects: 100% (3162/3162), 1.73 MiB | 2.73 MiB/s, done.
+Resolving deltas: 100% (986/986), done.
+Checking connectivity... done.
+covellite:~/tmp$
+
+Looks like manifest repo with only default.xml and standard .git/
+subdirectory.
+
+2. Create my own manifest git repository:
+$ mkdir manifest
+$ cd manifest
+$ git init
+Initialized empty Git repository in /home/marcilr/tmp/tmp2/manifest/.git/
+$ github-create
+Repo name (hit enter to use 'manifest')?
+<enter>
+Creating Github repository 'manifest' ... done.
+Pushing local code to remote ... done.
+$
+
+3. Check manifiest repo to verify creation:
+$ cd ..
+$ rm -rf manifest
+$ git clone git@github.com:marcilr/manifest.git manifest
+Cloning into 'manifest'...
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+$
+
+Looks good.
+
+4. Create and add default manifest:
+$ cd manifest
+
+Create default.xml
+
+$ git add default.xml
+$ git commit -m "Default manifest" default.xml
+ 1 file changed, 19 insertions(+)
+ create mode 100644 default.xml
+$
+
+Push default manifest to GitHub:$ git push
+Counting objects: 3, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 495 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:marcilr/manifest.git
+ * [new branch]      master -> master
+$
+
+
++++ Tue Dec  8 09:02:08 AKST 2015 - Use repo init -u to   <=== working
+checkout GitHub repository.                                               
+
+
+Try against new manifest repo:
+$ repo --trace init -u git@github.com:marcilr/manifest.git
+Get https://gerrit.googlesource.com/git-repo/clone.bundle
+Get https://gerrit.googlesource.com/git-repo
+remote: Finding sources: 100% (10/10)
+remote: Total 10 (delta 1), reused 10 (delta 1)
+Unpacking objects: 100% (10/10), done.
+From https://gerrit.googlesource.com/git-repo
+   74cfd27..e9becc0  master     -> origin/master
+: git --version 1>| 2>|
+: parsing /home/marcilr/.gitconfig
+Get git@github.com:marcilr/manifest.git
+: export GIT_DIR=/home/marcilr/tmp/tmp3/.repo/manifests.git
+: git init 1>| 2>|
+: git config --file /home/marcilr/tmp/tmp3/.repo/manifests.git/config \
+--null --list 1>| 2>|
+: git config --file /home/marcilr/tmp/tmp3/.repo/manifests.git/config \
+--unset-all core.bare 1>| 2>|
+: git config --file /home/marcilr/tmp/tmp3/.repo/manifests.git/config \
+--replace-all remote.origin.url git@github.com:marcilr/manifest.git 1>| 2>|
+: git config --file /home/marcilr/tmp/tmp3/.repo/manifests.git/config \
+--replace-all remote.origin.fetch +refs/heads/*:refs/remotes/origin/* 1>| 2>|
+: ssh -o ControlPath /tmp/ssh-inWCLs/master-%r@%h:%p git@github.com -O check
+: ssh -M -N -o ControlPath /tmp/ssh-inWCLs/master-%r@%h:%p git@github.com
+: git fetch --progress origin --tags +refs/heads/*:refs/remotes/origin/* \
++refs/heads/master:refs/remotes/origin/master 1>| 2>|
+remote: Counting objects: 3, done.        
+remote: Compressing objects: 100% (2/2), done.        
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0        
+From github.com:marcilr/manifest
+ * [new branch]      master     -> origin/master
+: git pack-refs --all --prune 1>| 2>|
+: git rev-parse --verify refs/remotes/origin/master^0 1>| 2>|
+
+: cd /home/marcilr/tmp/tmp3/.repo/manifests
+: git read-tree --reset -u -v HEAD 1>| 2>|
+: load refs /home/marcilr/tmp/tmp3/.repo/manifests.git
+: scan refs /home/marcilr/tmp/tmp3/.repo/manifests.git
+
+Your identity is: Raymond Marcil <marcilr@gmail.com>
+If you want to change this, please re-run 'repo init' with --config-name
+
+repo has been initialized in /home/marcilr/tmp/tmp3
+$
+
+This checked out to the current working directory with
+.repo subdirectory.  The .repo directory has manifests/default.xml
+and .repo/manifest.xml symlink to ./repo/manifest/default.xml
+
+
+$ repo sync
+Fetching project marcilr/foo.git
+remote: Counting objects: 11, done.        
+remote: Total 11 (delta 0), reused 0 (delta 0), pack-reused 9        
+From ssh://github.com/marcilr/foo
+ * [new branch]      master     -> origin/master
+Fetching projects: 100% (1/1), done.  
+
+$
+
+This checked out the GitHub foo repo to projects/foo in the 
+current working directory.
+
+I've got the repo command working!
+
+
+Works:
+$ git clone git@github.com:marcilr/foo.git foo
+
+
++++ Mon Dec  7 15:24:42 AKST 2015 - Merge git commit details from:
+2.3 Git Basics - Viewing the Commit History
+https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
+
+
++++ Tue Dec  8 09:37:48 AKST 2015 - Add removing subdirectory section:
+
+foo$ git commit -m "Removing .repo subdirectory." .repo
+[master 818f97a] Removing .repo subdirectory.
+ 2 files changed, 20 deletions(-)
+ delete mode 120000 .repo/manifest.xml
+ delete mode 100644 .repo/manifests/default.xml
+foo$
+
+foo$ git push
+Counting objects: 2, done.
+Writing objects: 100% (2/2), 212 bytes | 0 bytes/s, done.
+Total 2 (delta 0), reused 0 (delta 0)
+To git@github.com:marcilr/foo.git
+   6aa954a..818f97a  master -> master
+foo$ 
+
+Remove directory from git but NOT local
+---------------------------------------
+As mentioned in the comments, what you usually want to do is remove
+this directory from git but not delete it entirely from the
+filesystem (local)
+In that case use:
+
+git rm -r --cached myFolder
+
+How to remove a directory in my GitHub repository?
+http://stackoverflow.com/questions/6313126/how-to-remove-a-directory-in-my-github-repository
+
+
+Complete
+========
+x Tue Dec  8 08:09:15 AKST 2015 - Clone repository with ssh and crypto keys:
+
+On GitHub public key configured under:
+  Settings > SSH Keys
+
+rsa4096_github_nopassphrase.pub
+  On GitHub public key configured under:
+    Settings > SSH Keys
+
+.ssh/
+rsa4096_github_nopassphrase
+rsa4096_github_nopassphrase.pub
+
+.ssh/config:
+host github.com
+$ git clone git@github.com:marcilr/foo.git foo
+    Hostname github.com
+    User git
+    IdentityFile ~/.ssh/rsa4096_github_nopassphrase
+    IdentitiesOnly yes
+    ServerAliveInterval 120
+
+covellite:~/tmp$ git clone git@github.com:marcilr/foo.git foo
+Cloning into 'foo'...
+warning: You appear to have cloned an empty repository.
+Checking connectivity... done.
+marcilr@covellite:~/tmp
+$
+
+
+
+
+Links
+=====
+git-repo
+repo - The multiple repository tool
+https://code.google.com/p/git-repo/
+
+How does the Android repo manifest repository work?
+Has good details here <=== Should mirror.
+http://stackoverflow.com/questions/6149725/how-does-the-android-repo-manifest-repository-work
+
+Is there any way to clone a git repository's sub-directory only?
+This is called a sparse checkout, available since version 1.7.0.
+http://stackoverflow.com/questions/600079/is-there-any-way-to-clone-a-git-repositorys-sub-directory-only/13738951#13738951
+http://stackoverflow.com/a/13738951/278405
+
+Repo: Tips & Tricks
+xda university
+Some good tricks here
+http://xda-university.com/as-a-developer/repo-tips-tricks
+
+Repo command reference
+http://source.android.com/source/using-repo.html
+
+Repo manifest format
+https://gerrit.googlesource.com/git-repo/+/master/docs/manifest-format.txt
+
+Using Google's repo command in your own projects
+by wroberts3
+http://www.instructables.com/id/Using-Googles-repo-command-in-your-own-projects/
