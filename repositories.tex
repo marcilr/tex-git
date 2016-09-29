@@ -1,0 +1,48 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% repositories.tex
+%% Created Thu Nov 19 11:00:57 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Repositories	
+%%
+
+%% ====================== Repositories ===========================
+%% ====================== Repositories ===========================
+%% ====================== Repositories ===========================
+\newpage
+\section{Repositories}
+The purpose of Git is to manage a project, or a set of files, as
+they change over time.  Git stores this information in a data
+structure called a repository.\footnote{Understanding Git: Repositories,\\
+\href{http://getliner.com/qXYnW/}{http://getliner.com/qXYnW/}}
+\\
+\\
+A git repository contains, among other things, the following:
+
+\begin{itemize}
+  \item{A set of commit objects.}
+  \item{A set of references to commit objects, called heads.}
+\end{itemize}
+
+\noindent The Git repository is stored in the same directory as
+the project itself, in a subdirectory called \cmd{.git}.  Note
+differences from central-repository systems like CVS or
+Subversion:
+
+\begin{itemize}
+  \item{There is only one .git directory,
+        in the root directory of the project.}
+  \item{The repository is stored in files alongside the project.
+        There is no central server repository.}
+\end{itemize}
+
+
+%% Branching & Tagging
+\input{repositories/branching-tagging/branching-tagging.tex}
+
+%% SSH
+\input{repositories/ssh/ssh.tex}
+
+%% Commands
+\input{repositories/commands/commands.tex}
