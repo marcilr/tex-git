@@ -1,0 +1,96 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% clone.tex
+%% Created Wed Nov 18 15:00:41 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Clone
+%%
+
+%% =========================== Clone =============================
+%% =========================== Clone =============================
+\newpage
+\subsubsection{Clone}
+To grab a complete copy of another user's repository, use git clone like this:
+
+\begin{Verbatim}
+  $ git clone https://github.com/USERNAME/REPOSITORY.git
+  # Clones a repository to your computer
+\end{Verbatim}
+
+\noindent When you run \cmd{git clone}, the following actions occur:\\
+$>$ A new folder called repo is made\\
+$>$ It is initialized as a Git repository\\
+$>$ A remote named origin is created, pointing to the URL you cloned from\\
+$>$ All of the repository's files and commits are downloaded there\\
+$>$ The default branch (usually called master) is checked out\\
+
+\noindent For every branch \cmd{foo} in the remote repository, a corresponding remote-tracking
+branch \cmd{refs/remotes/origin/foo} is created in your local repository.  You can
+usually abbreviate such remote-tracking branch names to \cmd{origin/foo}.\footnote{Fetching a remote,
+\cmd{git clone}, \cmd{git fetch}, \cmd{git merge}, \cmd{git pull},
+\href{https://help.github.com/articles/fetching-a-remote/}{https://help.github.com/articles/fetching-a-remote/}}
+
+%% ========================== Syntax =============================
+%% ========================== Syntax =============================
+\vspace{20pt}
+\noindent\begin{bf}Syntax\end{bf}
+\\
+\\
+\noindent Clone the required package by executing the following
+command:\footnote{Cloning Tizen Source,\\
+\href{https://source.tizen.org/documentation/developer-guide/getting-started-guide/cloning-tizen-source}{https://source.tizen.org/documentation/developer-guide/getting-started-guide/cloning-tizen-source}}
+
+\begin{Verbatim}
+ $ git clone [-b <Branch>] ssh://<Username>@review.tizen.org:\
+ 29418/<Gerrit_Project> [<Local_Project>]
+\end{Verbatim}
+
+or
+
+\begin{Verbatim}
+ $ git clone ssh://<Username>@review.tizen.org:29418/pkgs/a/avsystem
+\end{Verbatim}
+
+%% ========================= Examples ============================
+%% ========================= Examples ============================
+\vspace{20pt}
+\noindent\begin{bf}Examples\end{bf}
+\\
+\\
+To clone repository named \cmd{git} from GitHub to local \cmd{covellite} workstation:
+\begin{Verbatim}
+ covellite:~$ git clone https://github.com/marcilr/git.git
+ Cloning into 'git'...
+ warning: You appear to have cloned an empty repository.
+ Checking connectivity... done.
+ covellite:~$
+\end{Verbatim}
+
+\noindent Clone \cmd{.repo} repository into \cmd{git/} directory:
+\begin{Verbatim}
+ covellite:~/git$ git clone https://github.com/marcilr/.repo
+ Cloning into '.repo'...
+ warning: You appear to have cloned an empty repository.
+ Checking connectivity... done.
+ covellite:~/git$
+\end{Verbatim}
+
+\noindent To clone a Git repository over SSH, you can specify ssh:// URL like this:\\
+\begin{Verbatim}
+ $ git clone ssh://user@server/project.git
+\end{Verbatim}
+
+\noindent Or you can use the shorter scp-like syntax for the SSH protocol:
+
+\begin{Verbatim}
+ $ git clone user@server:project.git
+\end{Verbatim}
+
+\noindent You can also not specify a user, and Git assumes the user
+you're currently logged in as.\footnote{
+Git on the Server - The Protocols, The SSH Protocol,\\
+\href{https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols}{https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols}}
+\\
+\\
+\noindent \FIXME{Need more commands here.}

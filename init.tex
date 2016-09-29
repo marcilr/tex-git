@@ -1,0 +1,42 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% init.tex
+%% Created Wed Dec  2 13:50:35 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Init
+%%
+
+%% ============================ Init ==============================
+%% ============================ Init ==============================
+\subsubsection{Init}
+Initialize new repository
+\\
+\\
+The \cmd{git init} command creates a new Git repository.  It can be
+used to convert an existing, unversioned project to a Git
+repository or initialize a new empty repository. Most of the other
+Git commands are not available outside of an initialized
+repository, so this is usually the first command you’ll run in a
+new project.
+\\
+\\
+Executing \cmd{git init} creates a \cmd{.git} subdirectory in the
+project root, which contains all of the necessary metadata for the
+repo. Aside from the .git directory, an existing project remains
+unaltered (unlike SVN, Git doesn't require a \cmd{.git} folder in
+every subdirectory).\footnote{Setting up a repository, git init,\\
+\href{https://www.atlassian.com/git/tutorials/setting-up-a-repository}
+{https://www.atlassian.com/git/tutorials/setting-up-a-repository}}
+\\
+\\
+\begin{bf}Examples\end{bf}
+
+\begin{Verbatim}
+ $ mkdir wti
+ $ cd wti/
+ $ git init
+ Initialized empty Git repository in /home/marcilr/wti/.git/
+ $ 
+\end{Verbatim}
+
