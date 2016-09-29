@@ -1,0 +1,117 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% init.tex
+%% Created Fri Nov 20 11:16:34 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Google repo init
+%%
+
+%% ========================== init ===============================
+%% ========================== init ===============================
+\clearpage
+\subsubsection{init}
+\FIXME{Good init syntax here:\\
+\href{https://source.tizen.org/documentation/developer-guide/getting-started-guide/cloning-tizen-source}{https://source.tizen.org/documentation/developer-guide/getting-started-guide/cloning-tizen-source}}
+\\
+\\
+\cmd{\$ repo init -u <URL> [<OPTIONS>]}
+\\
+\\
+Installs Repo in the current directory. This creates a \cmd{.repo/}
+directory that contains Git repositories for the Repo source code
+and the standard Android manifest files.  The \cmd{.repo/}
+directory also contains \cmd{manifest.xml}, which is a symlink to the
+selected manifest in the \cmd{.repo/manifests/} directory.\footnote{Repo command reference --
+\href{https://source.android.com/source/using-repo.html\#forall}{https://source.android.com/source/using-repo.html}}\\
+
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|p{.15\textwidth}|p{.75\textwidth}|}\hline
+\centering Command&\centering Description\tabularnewline
+\hline
+\centering -u&Specify a URL from which to retrieve a manifest repository.
+The common manifest can be found at:
+\cmd{https://android.googlesource.com/platform/manifest}\\
+\centering -m&Select a manifest file within the repository. If no manifest
+ name is selected, the default is default.xml.\\
+\centering -b&Specify a revision, i.e., a particular manifest-branch.\\
+\hline
+\end{tabular}
+\caption {init Options}
+\label{table:init_options}
+\end{center}
+\end{table}
+
+%% ======================== Examples =============================
+%% ======================== Examples =============================
+\noindent \begin{bf}Examples\end{bf}
+\\
+\\
+This will create a new place to hold your local copy of the source
+tree.  The \cmd{url} should point to a Manifest repository that
+describes the whole sources.  It is a special project with a file
+(default.xml) that lists all the projects that Android is made of.
+In the Manifest file, each projects has attributes about: where to
+place it in the tree, where to download it from (git server),
+revision that will be used (usually a branch name, tag or commit
+sha-id).\footnote{Repo: Tips \& Tricks,\\
+\href{http://xda-university.com/as-a-developer/repo-tips-tricks}{http://xda-university.com/as-a-developer/repo-tips-tricks}}
+\\
+\\
+\indent\cmd{repo init -u <url> -b <branch>}
+\\
+\\
+\noindent Note: For all remaining Repo commands, the current working
+directory must either be the parent directory of \cmd{.repo/}
+or a subdirectory of the parent directory.\footnote{Repo command reference --
+\href{https://source.android.com/source/using-repo.html\#forall}{https://source.android.com/source/using-repo.html}}\\
+\\
+\\
+
+
+%% ==================== GitHub repo init =========================
+%% ==================== GitHub repo init =========================
+\newpage
+\noindent \begin{bf}GitHub repo init\end{bf}
+\\
+\\
+\begin{verbatim}
+ $ repo init -u https://github.com/marcilr/git.git -b <branch>
+ $ repo sync
+\end{verbatim}
+
+\begin{verbatim}
+covellite:~/tmp/foo$ repo init -u ssh://github.com/marcilr/.repo -m manifest.xml
+Get https://gerrit.googlesource.com/git-repo/clone.bundle
+Get https://gerrit.googlesource.com/git-repo
+remote: Counting objects: 7, done
+remote: Finding sources: 100% (182/182)
+remote: Total 182 (delta 59), reused 182 (delta 59)
+Receiving objects: 100% (182/182), 246.65 KiB | 0 bytes/s, done.
+Resolving deltas: 100% (59/59), completed with 4 local objects.
+From https://gerrit.googlesource.com/git-repo
+   5d0c3a6..e1e0bd1  master     -> origin/master
+   163fdbf..745b4ad  stable     -> origin/stable
+ * [new tag]         v1.12.27   -> v1.12.27
+ * [new tag]         v1.12.28   -> v1.12.28
+ * [new tag]         v1.12.29   -> v1.12.29
+ * [new tag]         v1.12.30   -> v1.12.30
+ * [new tag]         v1.12.30.1 -> v1.12.30.1
+ * [new tag]         v1.12.31   -> v1.12.31
+ * [new tag]         v1.12.32   -> v1.12.32
+Get ssh://github.com/marcilr/.repo
+Permission denied (publickey).
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+fatal: cannot obtain manifest ssh://github.com/marcilr/.repo
+covellite:~/tmp/foo$
+\end{verbatim}
