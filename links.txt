@@ -1,0 +1,46 @@
+links.txt
+Created Mon Aug 10 08:45:36 AKDT 2015
+Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+
+
+Git related links
+
+Links
+=====
+Adding an existing project to GitHub using the command line
+https://help.github.com/articles/adding-an-existing-project-to-github-using-the-command-line/
+
+Getting Started - Installing Git
+Solid docs here
+https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+Git
+https://git-scm.com/
+
+Git Basics - Getting a Git Repository
+https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
+
+Git Branching - Basic Branching and Merging
+https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging
+
+Git branching and tagging best practices
+http://programmers.stackexchange.com/questions/165725/git-branching-and-tagging-best-practices
+
+How the Heck Do I Use GitHub?
+by Adam Dachis
+http://lifehacker.com/5983680/how-the-heck-do-i-use-github
+
+hub is a command-line wrapper for git that makes you better at GitHub
+https://hub.github.com/
+
+Is it possible to create a remote repo on GitHub from the CLI without ssh?
+http://stackoverflow.com/questions/2423777/is-it-possible-to-create-a-remote-repo-on-github-from-the-cli-without-ssh
+
+Node GH
+GitHub command line tools
+http://nodegh.io/
+https://github.com/node-gh/gh
+
+Repository API
+https://developer.github.com/v3/repos/#create
+
