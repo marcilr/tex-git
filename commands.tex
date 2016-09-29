@@ -1,0 +1,44 @@
+%% -*- Mode: LaTeX -*-
+%%
+%% commands.tex
+%% Created Thu Nov 19 08:25:10 AKST 2015
+%% Copyright (C) 2015 by Raymond E. Marcil <marcilr@gmail.com>
+%%
+%% Commands
+%%
+
+%% ===================== Commands =========================
+%% ===================== Commands =========================
+\newpage
+\subsection{Commands}
+\begin{table}[htb]
+\begin{center}
+\begin{tabular}{|p{.20\textwidth}|p{.70\textwidth}|}\hline
+Command&Description\\
+\hline
+\cmd{remote add}&Add a new remote in the directory your repository is stored at.\\
+\cmd{remote set-url}&Change a remote's URL.\\
+\cmd{remote rename}&Rename an existing remote.\\
+\cmd{remote rm}&Remove a remote URL from your repository.\\
+\hline
+\end{tabular}
+\caption {Remote Commands}
+\label{table:remote_commands}
+\end{center}
+\end{table}
+
+\noindent For further reading see ``\href{http://git-scm.com/book/en/Git-Basics-Working-with-Remotes}{Working with Remotes}''
+from the Pro Git book.\footnote{Pro Git book, \href{http://git-scm.com/book/en/Git-Basics-Working-with-Remotes}{http://git-scm.com/book/en/Git-Basics-Working-with-Remotes}}
+
+
+%% git remote add
+\input{remotes/commands/git-remote-add.tex}
+
+%% git remote set-url
+\input{remotes/commands/git-remote-set-url.tex}
+
+%% git remote rename
+\input{remotes/commands/git-remote-rename.tex}
+
+%% git remote rm
+\input{remotes/commands/git-remote-rm.tex}
