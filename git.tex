@@ -221,11 +221,15 @@ pdfkeywords={git, revision control}
         \texttt{$<$marcilr@gmail.com$>$}
 }
 
-% Display subversion revision and date under author on 1st page.
-\date{Revision \svnInfoRevision
-      \hspace{2pt}
-      (\svnInfoLongDate)}
+% Display git revison number determine in Makefile with:
+%% git rev-list HEAD --count
+%%
+\date{Revision: 425 (ce8f129)\\September 30, 2016} %%REVISION
 
+% Display subversion revision and date under author on 1st page.
+%%\date{Revision \svnInfoRevision
+%%       \hspace{2pt}
+%%      (\svnInfoLongDate)}
 
 % Set date to RCS revision date
 %%\date{Revision \RCSRevision
@@ -297,7 +301,7 @@ pdfkeywords={git, revision control}
 \input{introduction/introduction.tex}
 \input{branching-tagging/branching-tagging.tex}
 \input{remotes/remotes.tex}
-\input{commands/commands.tex}
+%%\input{commands/commands.tex}
 
 %% Decided that Google's repo command
 %% is not really appropriate for this document
