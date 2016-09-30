@@ -31,18 +31,19 @@
 # Source for ifeq string comparision syntax
 # http://stackoverflow.com/questions/3728372/string-comparison-inside-makefile
 #
-BIBTEX = /usr/bin/bibtex
-CAT    = /bin/cat
-CUT    = /usr/bin/cut
-DVIPS  = /usr/bin/dvips
-GREP   = /bin/grep
-LATEX  = /usr/bin/latex
-MKDIR  = /bin/mkdir
-PS2PDF = /usr/bin/ps2pdf
-RM     = /bin/rm
-PS2PDF = /usr/bin/ps2pdf
-RSYNC  = /usr/bin/rsync
-TAR    = /bin/tar
+BIBTEX         = /usr/bin/bibtex
+CAT            = /bin/cat
+CUT            = /usr/bin/cut
+DVIPS          = /usr/bin/dvips
+GREP           = /bin/grep
+INSERTREVISION = ./insert-revision
+LATEX          = /usr/bin/latex
+MKDIR          = /bin/mkdir
+PS2PDF         = /usr/bin/ps2pdf
+RM             = /bin/rm
+PS2PDF         = /usr/bin/ps2pdf
+RSYNC          = /usr/bin/rsync
+TAR            = /bin/tar
 
 # Determine LaTeX document basename dynamically.
 # Rather than hardcoding.
@@ -75,7 +76,16 @@ OUT = $(BASENAME).out
 # If not using subversion this will still work but the revision number
 # won't get updated when the document is updated.
 #
-REVISION:=$(shell $(CAT) $(SRC) | $(GREP) "svnInfo " | $(CUT) -d ' ' -f 4)
+#REVISION:=$(shell $(CAT) $(SRC) | $(GREP) "svnInfo " | $(CUT) -d ' ' -f 4)
+
+#
+# Get the number of git commits for revision number.
+#
+# How to get the git commit count?
+# http://stackoverflow.com/questions/677436/how-to-get-the-git-commit-count
+#
+REVISION:=$(shell git rev-list HEAD --count)
+
 
 #
 # If REVISION is defined then include in distribution filename.
@@ -96,6 +106,7 @@ cycle: clean ${DVI} ${PS} ${PDF}
 
 # Remove temporary files, bz2 files, and pdf
 clean: mostly-clean
+	$(RM) -f  revision/revision.tex
 	$(RM) -f  *.bz2 $(PDF)
 
 #
@@ -115,6 +126,7 @@ pdf: ${PDF}
 bz2: $(BZ2)
 
 ${DVI}: ${SRC}
+	${INSERTREVISION}
 	$(LATEX) $(SRC)
 
 # Uncomment this entry if there are \citation entries.
