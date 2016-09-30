@@ -99,6 +99,14 @@ git.tex
   efficiency.
   https://git-scm.com/
 
+insert-revision
+  Insert git revision, hash, and data into header.
+
+  The existing revision will get updated:
+      \date{Revision: *} %%REVISION
+  to:
+      \date{Revision: 425 (ce8f129)\\September 30, 2016} %%REVISION
+
 subfigure.sty
   Figures divided into subfigures macro.  Required by figsize.sty
   http://ctan.org/tex-archive/obsolete/macros/latex/contrib/subfigure/
